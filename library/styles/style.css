@@ -1,0 +1,111 @@
+@font-face {
+	font-family: Forum;
+	src: url("../assets/fonts/Forum-Regular.ttf");
+}
+
+@font-face {
+	font-family: Inter;
+	src: url("../assets/fonts/Inter-Regular.ttf");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+a:hover {
+  color: #bdbdbd;
+}
+
+body {
+  display: block;
+  max-width: 1440px;
+  background-color: rgb(255, 204, 108);
+}
+
+header {
+  display: flex;
+  width: 100%;
+  height: 90px;
+  background-color: #0c0c0e;
+}
+
+.header-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 334px;
+  height: 100%;
+  font-family: Forum, serif;
+  font-size: 30px;
+  line-height: 50px;
+  color: #ffffff;
+  letter-spacing: 0.6px;
+}
+
+.header-right {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  width: 1106px;
+  height: 100%;
+}
+
+nav {
+  display: flex;
+  width: 584px;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  line-height: 50px;
+  color: #ffffff;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  list-style-type: none;
+}
+
+.header-icon {
+  display: block;
+  margin-right: 20px;
+  margin-left: 40px;
+}
+
+.welcome {
+  display: flex;
+  width: 100%;
+  height: 600px;
+  background-image: linear-gradient(to bottom, #0c0c0e 0%, transparent 50%), url("../assets/images/welcome.jpg");
+  background-size: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.welcome-black {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 220px;
+  margin-top: 220px;
+  z-index: 2;
+  text-align: center;
+  font-family: Forum, serif;
+  font-size: 40px;
+  line-height: 50px;
+  letter-spacing:3px;
+  color: #ffffff;
+  background-color: #0c0c0e;
+}
