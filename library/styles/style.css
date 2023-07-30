@@ -8,7 +8,7 @@
 	src: url("../assets/fonts/Inter-Regular.ttf");
 }
 
-@keyframes button-buy {
+@keyframes button {
   from {
     background-color: #ffffff;
     border-color: #0c0c0e;
@@ -55,7 +55,7 @@ html {
 body {
   display: block;
   max-width: 1440px;
-  background-color: #8b8b8b;
+  background-color: #8e8e8e;
 }
 
 header {
@@ -519,7 +519,7 @@ header img {
 }
 
 .book-description-buy:hover {
-  animation-name: button-buy;
+  animation-name: button;
   animation-duration: 0.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
@@ -856,4 +856,204 @@ header img {
   display: block;
   width: 696px;
   height: 414px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 614px;
+  background-color: #ffffff;
+}
+
+.cards h2 {
+  display: block;
+  margin-top: 20px;
+  font-family: Forum, serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: #0c0c0e;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 1400px;
+  height: 480px;
+  margin-top: 40px;
+}
+
+.cards-container-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 600px;
+  height: 453px;
+}
+
+.cards-container-left > p {
+  display: block;
+  width: 100%;
+  height: 36px;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.6px;
+  color: #000000;
+}
+
+.cards-container-left form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  height: 386px;
+  border: 3px solid #bb945f;
+}
+
+.cards-description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 560px;
+  height: 272px;
+  margin-top: 17px;
+  background-color: #bb945f;
+}
+
+.cards-description p {
+  display: block;
+  height: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  font-family: Forum, serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0.6px;
+  color: #000000;
+  }
+
+.cards-type {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 157px;
+  margin-left: 20px;
+}
+
+.cards-type input {
+  display: flex;
+  align-items: center;
+  width: 520px;
+  height: 66px;
+  padding-bottom: 2px;
+  padding-left: 20px;
+  border-radius: 10px;
+  font-family: Forum, serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0.6px;
+  color: #8e8e8e;
+  background: #ffffff;
+}
+
+.cards-button-left {
+  display: block;
+  width: 242px;
+  height: 44px;
+  border-radius: 2px;
+  border: 1px solid #0c0c0e;
+  margin-top: 20px;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  color: #0c0c0e;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.cards-button-left:hover {
+  animation-name: button;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.cards-container-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 456px;
+  height: 253px;
+}
+
+.cards-container-right p {
+  display: block;
+  width: 100%;
+  height: 33px;
+  text-align: end;
+  font-family: Forum, serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.6px;
+  color: #000000;
+}
+
+.cards-container-right p + p {
+  display: block;
+  width: 456px;
+  height: 120px;
+  text-align: end;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0.4px;
+  color: #000000;
+}
+
+.cards-buttons {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 30px;
+}
+
+.cards-button-right {
+  display: block;
+  margin-left: 20px;
+  width: 75px;
+  height: 30px;
+  border-radius: 2px;
+  border: 1px solid #0c0c0e;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  color: #0c0c0e;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.cards-button-right:hover {
+  animation-name: button;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
