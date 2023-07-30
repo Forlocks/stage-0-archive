@@ -1,10 +1,10 @@
 @font-face {
-	font-family: Forum;
+	font-family: "Forum";
 	src: url("../assets/fonts/Forum-Regular.ttf");
 }
 
 @font-face {
-	font-family: Inter;
+	font-family: "Inter";
 	src: url("../assets/fonts/Inter-Regular.ttf");
 }
 
@@ -52,26 +52,6 @@ html {
 	scroll-behavior: smooth;
 }
 
-a {
-  position: relative;
-  text-decoration: none;
-  color: #ffffff;
-}
-
-a::before {
-	content: '';
-	position: absolute;
-	left: 0; bottom: -2px;
-	width: 0;
-	height: 2px;
-	background-color: #ffffff;
-  transition: width 0.5s;
-}
-
-a:hover:before {
-  width: 100%;
-}
-
 body {
   display: block;
   max-width: 1440px;
@@ -93,6 +73,7 @@ header {
   height: 100%;
   font-family: Forum, serif;
   font-size: 30px;
+  font-weight: 400;
   line-height: 50px;
   color: #ffffff;
   letter-spacing: 0.6px;
@@ -111,6 +92,7 @@ nav {
   width: 584px;
   font-family: Inter, sans-serif;
   font-size: 20px;
+  font-weight: 400;
   line-height: 50px;
   color: #ffffff;
 }
@@ -122,6 +104,26 @@ nav ul {
   width: 100%;
   height: 100%;
   list-style-type: none;
+}
+
+header a {
+  position: relative;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+header a::before {
+	content: '';
+	position: absolute;
+	left: 0; bottom: -2px;
+	width: 0;
+	height: 2px;
+	background-color: #ffffff;
+  transition: width 0.5s;
+}
+
+header a:hover:before {
+  width: 100%;
 }
 
 header img {
@@ -150,6 +152,7 @@ header img {
   text-align: center;
   font-family: Forum, serif;
   font-size: 40px;
+  font-weight: 400;
   line-height: 50px;
   letter-spacing:3px;
   color: #ffffff;
@@ -170,6 +173,7 @@ header img {
   margin-top: 20px;
   font-family: Forum, serif;
   font-size: 40px;
+  font-weight: 400;
   line-height: 40px;
   letter-spacing: 2px;
   color: #0c0c0e;
@@ -189,11 +193,12 @@ header img {
   width: 100%;
   height: 40px;
   margin-top: 40px;
-  color: #000000;
   text-align: center;
   font-family: Inter, sans-serif;
   font-size: 20px;
+  font-weight: 400;
   line-height: 40px;
+  color: #000000;
 }
 
 .about-slider {
@@ -277,6 +282,7 @@ header img {
   margin-top: 20px;
   font-family: Forum, serif;
   font-size: 40px;
+  font-weight: 400;
   line-height: 40px;
   letter-spacing: 2px;
   color: #0c0c0e;
@@ -535,4 +541,319 @@ header img {
   letter-spacing: 1px;
   color: #bb945f;
   background-color: #ffffff;
+}
+
+.coffee {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 841px;
+  background-color: #ffffff;
+}
+
+.coffee h2 {
+  display: block;
+  margin-top: 20px;
+  font-family: Forum, serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: #0c0c0e;
+}
+
+.coffee-description {
+  display: block;
+  margin-top: 40px;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: #000000;
+}
+
+.coffee-shop {
+  display: flex;
+  justify-content: space-between;
+  width: 1400px;
+  height: 520px;
+}
+
+.drinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 438px;
+  height: 100%;
+}
+
+.drinks h3 {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 40px;
+  font-family: Forum, serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: #BB945F;
+}
+
+.drinks-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 199px;
+  height: 440px;
+}
+
+.drinks-name p {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  height: 40px;
+  color: #000000;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+}
+
+.drinks-line {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100px;
+  height: 440px;
+}
+
+.drinks-line div {
+  display: flex;
+  width: 100px;
+  height: 1px;
+  margin-top: 19px;
+  margin-bottom: 20px;
+  background-color: #bb945f;
+}
+
+.drinks-price {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 23px;
+  height: 440px;
+}
+
+.drinks-price p {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 40px;
+  font-family: Forum, serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: #000000;
+}
+
+.cakes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 463px;
+  height: 100%;
+}
+
+.cakes h3 {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 40px;
+  font-family: Forum, serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: #BB945F;
+}
+
+.cakes-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 214px;
+  height: 440px;
+}
+
+.cakes-name p {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 40px;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: #000000;
+}
+
+.cakes-line {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100px;
+  height: 440px;
+}
+
+.cakes-line div {
+  display: flex;
+  width: 100px;
+  height: 1px;
+  margin-top: 19px;
+  margin-bottom: 20px;
+  background-color: #bb945f;
+}
+
+.cakes-price {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 35px;
+  height: 440px;
+}
+
+.cakes-price p {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 40px;
+  font-family: Forum, serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: #000000;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 575px;
+  background-color: #ffffff;
+}
+
+.contacts h2 {
+  display: block;
+  margin-top: 20px;
+  font-family: Forum, serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: #0c0c0e;
+}
+
+.contacts-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1400px;
+  height: 494px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.contacts-description {
+  display: flex;
+  flex-direction: column;
+  width: 511px;
+  height: 414px;
+}
+
+.contacts-description p {
+  display: block;
+  height: 40px;
+  margin-bottom: 20px;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: #000000;
+}
+
+.contacts-description div {
+  display: block;
+  height: 40px;
+  margin-bottom: 40px;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: #000000;
+}
+
+.contacts-description div + div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 160px;
+  margin-bottom: 40px;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: #000000;
+}
+
+.contacts-description div + div + div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100px;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: #000000;
+}
+
+.contacts a {
+  position: relative;
+  text-decoration: none;
+  color: #000000;
+}
+
+.contacts a::before {
+	content: '';
+	position: absolute;
+	left: 0; bottom: -2px;
+	width: 0;
+	height: 2px;
+	background-color: #000000;
+  transition: width 0.5s;
+}
+
+.contacts a:hover:before {
+  width: 100%;
+}
+
+.contacts img {
+  display: block;
+  width: 696px;
+  height: 414px;
 }
