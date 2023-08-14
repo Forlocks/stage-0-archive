@@ -1,0 +1,10 @@
+@media (max-width: 750px) {
+  .radio label {
+    margin-right: 35px;
+  }
+
+  .contacts img {
+    width: 610px;
+    height: 363px;
+  }
+}

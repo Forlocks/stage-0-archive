@@ -7,37 +7,49 @@
   <link rel="icon" href="assets/icons/favicon.svg">
   <link rel="stylesheet" href="styles/reset.css">
   <link rel="stylesheet" href="styles/style.css">
-  <script src="script.js"></script>
+  <link rel="stylesheet" href="styles/adaptive-1250.css">
+  <link rel="stylesheet" href="styles/adaptive-750.css">
+  <script defer src="script.js"></script>
 </head>
-<body>
-  <header>
+<body class="body">
+  <header class="header">
+    <script defer src="script.js"></script>
     <div class="header-left">
       <h1>
         Brooklyn Public Library
       </h1>
     </div>
     <div class="header-right">
-      <img class="header-icon" src="../library/assets/icons/profile.svg" title="Profile icon" alt="Profile icon">
+      <div class="header-icons">
+        <img class="cross-icon" src="../library/assets/icons/cross.svg" title="Сross icon" alt="Cross icon">
+        <img class="profile-icon-2" src="../library/assets/icons/profile.svg" title="Profile icon" alt="Profile icon">
+      </div>
       <nav>
         <ul>
           <li>
-            <a href="#about">About</a>
+            <a class="action-1" href="#about">About</a>
           </li>
           <li>
-            <a href="#favorites">Favorites</a>
+            <a class="action-2" href="#favorites">Favorites</a>
           </li>
           <li>
-            <a href="#coffee">Coffee shop</a>
+            <a class="action-3" href="#coffee">Coffee shop</a>
           </li>
           <li>
-            <a href="#contacts">Contacts</a>
+            <a class="action-4" href="#contacts">Contacts</a>
           </li>
           <li>
-            <a href="#cards">Library Card</a>
+            <a class="action-5" href="#cards">Library Card</a>
           </li>
         </ul>
       </nav>
     </div>
+    <img class="profile-icon-1" src="../library/assets/icons/profile.svg" title="Profile icon" alt="Profile icon">
+    <button class="burger-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </header>
   <main>
     <section class="welcome">
@@ -55,14 +67,18 @@
       <p>
         The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside
       </p>
-      <div class="about-slider">
-        <div class="about-slider-line">
-          <img src="../library/assets/images/slide-1.jpg" title="Slide-1" alt="Slide 1">
-          <img src="../library/assets/images/slide-2.jpg" title="Slide-2" alt="Slide 2">
-          <img src="../library/assets/images/slide-3.jpg" title="Slide-3" alt="Slide 3">
-          <img src="../library/assets/images/slide-4.jpg" title="Slide-4" alt="Slide 4">
-          <img src="../library/assets/images/slide-5.jpg" title="Slide-5" alt="Slide 5">
-        </div>
+      <div class="about-slider-space">
+        <img id="arrow-left" src="../library/assets/icons/arrow-left.svg" title="arrow-left" alt="arrow-left">
+          <div class="about-slider">
+            <div class="about-slider-line">
+              <img src="../library/assets/images/slide-1.jpg" title="Slide-1" alt="Slide 1">
+              <img src="../library/assets/images/slide-2.jpg" title="Slide-2" alt="Slide 2">
+              <img src="../library/assets/images/slide-3.jpg" title="Slide-3" alt="Slide 3">
+              <img src="../library/assets/images/slide-4.jpg" title="Slide-4" alt="Slide 4">
+              <img src="../library/assets/images/slide-5.jpg" title="Slide-5" alt="Slide 5">
+            </div>
+          </div>
+        <img id="arrow-right" src="../library/assets/icons/arrow-right.svg" title="arrow-right" alt="arrow-right">
       </div>
       <form class="about-slider-pagination">
         <label>
@@ -74,6 +90,14 @@
           <span class="custom-button"></span>
         </label>
         <label>
+          <input class="original-button" type="radio" name="slider">
+          <span class="custom-button"></span>
+        </label>
+        <label id="about-button-4">
+          <input class="original-button" type="radio" name="slider">
+          <span class="custom-button"></span>
+        </label>
+        <label id="about-button-5">
           <input class="original-button" type="radio" name="slider">
           <span class="custom-button"></span>
         </label>
@@ -417,11 +441,9 @@
         Coffee Shop
       </h2>
       <div class="underline-black"></div>
-      <pre class="coffee-description">
-In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation.&nbsp;
-You can get a favorite book and read in coffee shop. our barista to cook you best coffee, and also you can try desserts
-from bakery.
-      </pre>
+      <p class="coffee-description">
+        In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation.<br>You can get a favorite book and read in coffee shop. Our barista to cook you best coffee, and also you can try desserts from bakery.
+      </p>
       <div class="coffee-shop">
         <article class="drinks">
           <h3>
