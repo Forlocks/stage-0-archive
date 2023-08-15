@@ -106,24 +106,24 @@
   }
 
   .about-slider-space {
-    width: 580px;
+    width: 614px;
     max-height: none;
     height: 560px;
   }
 
   #arrow-left {
     display: block;
-    width: 23px;
-    height: 23px;
-    margin-top: 43px;
+    width: 24px;
+    height: 24px;
+    margin-top: 42px;
     cursor: pointer;
   }
 
   #arrow-right {
     display: block;
-    width: 23px;
-    height: 23px;
-    margin-top: 43px;
+    width: 24px;
+    height: 24px;
+    margin-top: 42px;
     cursor: pointer;
   }
 
