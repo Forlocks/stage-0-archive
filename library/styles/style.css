@@ -63,8 +63,8 @@ body {
 
 header {
   display: flex;
-  position: relative;
   justify-content: space-between;
+  position: relative;
   width: 100%;
   height: 90px;
   background-color: #0c0c0e;
@@ -247,8 +247,8 @@ header img {
 
 .about-slider {
   display: block;
-  height: 100%;
   width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 
@@ -256,8 +256,8 @@ header img {
   display: flex;
   justify-content: space-between;
   width: 163.195%;
-  margin-left: 20px;
   max-height: 38.889vw;
+  margin-left: 20px;
 }
 
 .about img {
@@ -294,9 +294,9 @@ header img {
 
 .original-button {
   display: block;
+  position: absolute;
   width: 0;
   height: 0;
-  position: absolute;
   opacity: 0;
   z-index: -1;
 }
@@ -315,8 +315,8 @@ header img {
 .custom-button::before {
   content: '';
   box-sizing: border-box;
-  position: absolute;
   display: none;
+  position: absolute;
   width: 26px;
   height: 26px;
   border: 5px solid #ffffff;
@@ -395,9 +395,9 @@ header img {
 
 .original-radio {
   display: block;
+  position: absolute;
   width: 0;
   height: 0;
-  position: absolute;
   opacity: 0;
   z-index: -1;
 }
@@ -904,7 +904,8 @@ header img {
 .contacts a::before {
 	content: '';
 	position: absolute;
-	left: 0; bottom: -2px;
+	left: 0;
+  bottom: -2px;
 	width: 0;
 	height: 2px;
 	background-color: #000000;
@@ -1099,11 +1100,11 @@ header img {
 
 .cards-button-right {
   display: block;
-  margin-left: 20px;
   width: 75px;
   height: 30px;
   border-radius: 2px;
   border: 1px solid #0c0c0e;
+  margin-left: 20px;
   text-align: center;
   font-family: Inter, sans-serif;
   font-size: 10px;
@@ -1244,7 +1245,8 @@ footer {
 footer a::before {
   content: '';
   position: absolute;
-  left: 0; bottom: -2px;
+  left: 0;
+  bottom: -2px;
   width: 0;
   height: 2px;
   background-color: #ffffff;
