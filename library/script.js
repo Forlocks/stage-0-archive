@@ -161,26 +161,26 @@ document.getElementById('arrow-right').addEventListener('click', function() { //
 
 
 
-document.querySelector('.radio').getElementsByTagName('form')[0].children[0].addEventListener('click', function() {
+document.querySelector('.radio').getElementsByTag('form')[0].children[0].addEventListener('click', function() {
   if (document.querySelector('.favorites-winter').classList.contains('season-selected-two')) {
     return;
   } else {
-    document.querySelector('.radio').getElementsByTagName('form')[0].children[0].removeAttribute('name');
-    document.querySelector('.radio').getElementsByTagName('form')[0].children[1].removeAttribute('name');
-    document.querySelector('.radio').getElementsByTagName('form')[0].children[2].removeAttribute('name');
-    document.querySelector('.radio').getElementsByTagName('form')[0].children[3].removeAttribute('name');
-    document.querySelector('.radio').getElementsByTagName('form')[0].children[0].setAttribute('name', 'active');
+    document.querySelector('.radio').getElementsByTagName('form')[0].children[0].removeAttribute('id');
+    document.querySelector('.radio').getElementsByTagName('form')[0].children[1].removeAttribute('id');
+    document.querySelector('.radio').getElementsByTagName('form')[0].children[2].removeAttribute('id');
+    document.querySelector('.radio').getElementsByTagName('form')[0].children[3].removeAttribute('id');
+    document.querySelector('.radio').getElementsByTagName('form')[0].children[0].setAttribute('id', 'active');
     document.querySelector('.season-selected-two').classList.add('season-selected-one');
     document.querySelector('.season-selected-two').classList.remove('season-selected-two');
     setTimeout(function() {
       document.querySelector('.season-selected-one').classList.remove('season-selected-one');
-      if (document.querySelector('.radio').getElementsByTagName('form')[0].children[0].hasAttribute('name')) {
+      if (document.querySelector('.radio').getElementsByTagName('form')[0].children[0].hasAttribute('id')) {
         document.querySelector('.favorites-winter').classList.add('season-selected-two');
-      } else if (document.querySelector('.radio').getElementsByTagName('form')[0].children[1].hasAttribute('name')) {
+      } else if (document.querySelector('.radio').getElementsByTagName('form')[0].children[1].hasAttribute('id')) {
         document.querySelector('.favorites-spring').classList.add('season-selected-two');
-      } else if (document.querySelector('.radio').getElementsByTagName('form')[0].children[2].hasAttribute('name')){
+      } else if (document.querySelector('.radio').getElementsByTagName('form')[0].children[2].hasAttribute('id')){
         document.querySelector('.favorites-summer').classList.add('season-selected-two');
-      } else if (document.querySelector('.radio').getElementsByTagName('form')[0].children[3].hasAttribute('name')){
+      } else if (document.querySelector('.radio').getElementsByTagName('form')[0].children[3].hasAttribute('id')){
         document.querySelector('.favorites-autumn').classList.add('season-selected-two');
       }
     }, 500)
@@ -190,22 +190,22 @@ document.querySelector('.radio').getElementsByTagName('form')[0].children[1].add
   if (document.querySelector('.favorites-spring').classList.contains('season-selected-two')) {
     return;
   } else {
-    document.querySelector('.radio').getElementsByTagName('form')[0].children[0].removeAttribute('name');
-    document.querySelector('.radio').getElementsByTagName('form')[0].children[1].removeAttribute('name');
-    document.querySelector('.radio').getElementsByTagName('form')[0].children[2].removeAttribute('name');
-    document.querySelector('.radio').getElementsByTagName('form')[0].children[3].removeAttribute('name');
-    document.querySelector('.radio').getElementsByTagName('form')[0].children[1].setAttribute('name', 'active');
+    document.querySelector('.radio').getElementsByTagName('form')[0].children[0].removeAttribute('id');
+    document.querySelector('.radio').getElementsByTagName('form')[0].children[1].removeAttribute('id');
+    document.querySelector('.radio').getElementsByTagName('form')[0].children[2].removeAttribute('id');
+    document.querySelector('.radio').getElementsByTagName('form')[0].children[3].removeAttribute('id');
+    document.querySelector('.radio').getElementsByTagName('form')[0].children[1].setAttribute('id', 'active');
     document.querySelector('.season-selected-two').classList.add('season-selected-one');
     document.querySelector('.season-selected-two').classList.remove('season-selected-two');
     setTimeout(function() {
       document.querySelector('.season-selected-one').classList.remove('season-selected-one');
-      if (document.querySelector('.radio').getElementsByTagName('form')[0].children[0].hasAttribute('name')) {
+      if (document.querySelector('.radio').getElementsByTagName('form')[0].children[0].hasAttribute('id')) {
         document.querySelector('.favorites-winter').classList.add('season-selected-two');
-      } else if (document.querySelector('.radio').getElementsByTagName('form')[0].children[1].hasAttribute('name')) {
+      } else if (document.querySelector('.radio').getElementsByTagName('form')[0].children[1].hasAttribute('id')) {
         document.querySelector('.favorites-spring').classList.add('season-selected-two');
-      } else if (document.querySelector('.radio').getElementsByTagName('form')[0].children[2].hasAttribute('name')){
+      } else if (document.querySelector('.radio').getElementsByTagName('form')[0].children[2].hasAttribute('id')){
         document.querySelector('.favorites-summer').classList.add('season-selected-two');
-      } else if (document.querySelector('.radio').getElementsByTagName('form')[0].children[3].hasAttribute('name')){
+      } else if (document.querySelector('.radio').getElementsByTagName('form')[0].children[3].hasAttribute('id')){
         document.querySelector('.favorites-autumn').classList.add('season-selected-two');
       }
     }, 500)
@@ -215,22 +215,22 @@ document.querySelector('.radio').getElementsByTagName('form')[0].children[2].add
   if (document.querySelector('.favorites-summer').classList.contains('season-selected-two')) {
     return;
   } else {
-    document.querySelector('.radio').getElementsByTagName('form')[0].children[0].removeAttribute('name');
-    document.querySelector('.radio').getElementsByTagName('form')[0].children[1].removeAttribute('name');
-    document.querySelector('.radio').getElementsByTagName('form')[0].children[2].removeAttribute('name');
-    document.querySelector('.radio').getElementsByTagName('form')[0].children[3].removeAttribute('name');
-    document.querySelector('.radio').getElementsByTagName('form')[0].children[2].setAttribute('name', 'active');
+    document.querySelector('.radio').getElementsByTagName('form')[0].children[0].removeAttribute('id');
+    document.querySelector('.radio').getElementsByTagName('form')[0].children[1].removeAttribute('id');
+    document.querySelector('.radio').getElementsByTagName('form')[0].children[2].removeAttribute('id');
+    document.querySelector('.radio').getElementsByTagName('form')[0].children[3].removeAttribute('id');
+    document.querySelector('.radio').getElementsByTagName('form')[0].children[2].setAttribute('id', 'active');
     document.querySelector('.season-selected-two').classList.add('season-selected-one');
     document.querySelector('.season-selected-two').classList.remove('season-selected-two');
     setTimeout(function() {
       document.querySelector('.season-selected-one').classList.remove('season-selected-one');
-      if (document.querySelector('.radio').getElementsByTagName('form')[0].children[0].hasAttribute('name')) {
+      if (document.querySelector('.radio').getElementsByTagName('form')[0].children[0].hasAttribute('id')) {
         document.querySelector('.favorites-winter').classList.add('season-selected-two');
-      } else if (document.querySelector('.radio').getElementsByTagName('form')[0].children[1].hasAttribute('name')) {
+      } else if (document.querySelector('.radio').getElementsByTagName('form')[0].children[1].hasAttribute('id')) {
         document.querySelector('.favorites-spring').classList.add('season-selected-two');
-      } else if (document.querySelector('.radio').getElementsByTagName('form')[0].children[2].hasAttribute('name')){
+      } else if (document.querySelector('.radio').getElementsByTagName('form')[0].children[2].hasAttribute('id')){
         document.querySelector('.favorites-summer').classList.add('season-selected-two');
-      } else if (document.querySelector('.radio').getElementsByTagName('form')[0].children[3].chasAttribute('name')){
+      } else if (document.querySelector('.radio').getElementsByTagName('form')[0].children[3].chasAttribute('id')){
         document.querySelector('.favorites-autumn').classList.add('season-selected-two');
       }
     }, 500)
@@ -240,22 +240,22 @@ document.querySelector('.radio').getElementsByTagName('form')[0].children[3].add
   if (document.querySelector('.favorites-autumn').classList.contains('season-selected-two')) {
     return;
   } else {
-    document.querySelector('.radio').getElementsByTagName('form')[0].children[0].removeAttribute('name');
-    document.querySelector('.radio').getElementsByTagName('form')[0].children[1].removeAttribute('name');
-    document.querySelector('.radio').getElementsByTagName('form')[0].children[2].removeAttribute('name');
-    document.querySelector('.radio').getElementsByTagName('form')[0].children[3].removeAttribute('name');
-    document.querySelector('.radio').getElementsByTagName('form')[0].children[3].setAttribute('name', 'active');
+    document.querySelector('.radio').getElementsByTagName('form')[0].children[0].removeAttribute('id');
+    document.querySelector('.radio').getElementsByTagName('form')[0].children[1].removeAttribute('id');
+    document.querySelector('.radio').getElementsByTagName('form')[0].children[2].removeAttribute('id');
+    document.querySelector('.radio').getElementsByTagName('form')[0].children[3].removeAttribute('id');
+    document.querySelector('.radio').getElementsByTagName('form')[0].children[3].setAttribute('id', 'active');
     document.querySelector('.season-selected-two').classList.add('season-selected-one');
     document.querySelector('.season-selected-two').classList.remove('season-selected-two');
     setTimeout(function() {
       document.querySelector('.season-selected-one').classList.remove('season-selected-one');
-      if (document.querySelector('.radio').getElementsByTagName('form')[0].children[0].hasAttribute('name')) {
+      if (document.querySelector('.radio').getElementsByTagName('form')[0].children[0].hasAttribute('id')) {
         document.querySelector('.favorites-winter').classList.add('season-selected-two');
-      } else if (document.querySelector('.radio').getElementsByTagName('form')[0].children[1].hasAttribute('name')) {
+      } else if (document.querySelector('.radio').getElementsByTagName('form')[0].children[1].hasAttribute('id')) {
         document.querySelector('.favorites-spring').classList.add('season-selected-two');
-      } else if (document.querySelector('.radio').getElementsByTagName('form')[0].children[2].hasAttribute('name')){
+      } else if (document.querySelector('.radio').getElementsByTagName('form')[0].children[2].hasAttribute('id')){
         document.querySelector('.favorites-summer').classList.add('season-selected-two');
-      } else if (document.querySelector('.radio').getElementsByTagName('form')[0].children[3].hasAttribute('name')){
+      } else if (document.querySelector('.radio').getElementsByTagName('form')[0].children[3].hasAttribute('id')){
         document.querySelector('.favorites-autumn').classList.add('season-selected-two');
       }
     }, 500)
