@@ -161,7 +161,7 @@ document.getElementById('arrow-right').addEventListener('click', function() { //
 
 
 
-document.querySelector('.radio').getElementsByTag('form')[0].children[0].addEventListener('click', function() {
+document.querySelector('.radio').getElementsByTag('form')[0].children[0].addEventListener('click', function() { //Функционал радио-кнопок навигации для секции "Favorites"
   if (document.querySelector('.favorites-winter').classList.contains('season-selected-two')) {
     return;
   } else {
