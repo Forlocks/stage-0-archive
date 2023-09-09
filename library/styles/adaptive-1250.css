@@ -1,8 +1,7 @@
 @media (max-width: 1250px) {
-  .header.open .header-right {
+  .header.open .header-right { /* Открытие бургер-меню */
     transform: translateX(-100%);
   }
-  /* Открытие меню */
 
   .profile-icon-1 {
     display: block;
@@ -40,7 +39,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: -332px;
     width: 332px;
@@ -109,6 +108,7 @@
     width: 614px;
     max-height: none;
     height: 560px;
+    justify-content: space-between;
   }
 
   #arrow-left {
@@ -162,8 +162,15 @@
     height: 2629px;
   }
 
+  .radio {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+
   .favorites-season {
     height: 2340px;
+    z-index: 1;
   }
 
   .favorites-winter {
