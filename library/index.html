@@ -80,15 +80,15 @@
         <img id="arrow-right" src="../library/assets/icons/arrow-right.svg" title="arrow-right" alt="arrow-right">
       </div>
       <form class="about-slider-pagination">
-        <label>
+        <label id="about-button-1">
           <input class="original-button" type="radio" name="slider" checked>
-          <span class="custom-button"></span>
+          <span class="custom-button custom-button-selected"></span>
         </label>
-        <label>
+        <label id="about-button-2">
           <input class="original-button" type="radio" name="slider">
           <span class="custom-button"></span>
         </label>
-        <label>
+        <label id="about-button-3">
           <input class="original-button" type="radio" name="slider">
           <span class="custom-button"></span>
         </label>
@@ -114,7 +114,7 @@
       </div>
       <div class="radio">
         <form>
-          <label style="width: 119px;">
+          <label style="width: 119px;" id="active">
             <input class="original-radio" type="radio" name="season" checked>
             <span class="custom-radio"></span>
             <span>Winter</span>
@@ -129,7 +129,7 @@
             <span class="custom-radio"></span>
             <span>Summer</span>
           </label>
-          <label style="width: 126px;">
+          <label style="width: 126px; margin-right: 0;">
             <input class="original-radio" type="radio" name="season">
             <span class="custom-radio"></span>
             <span>Autumn</span>
@@ -137,7 +137,7 @@
         </form>
       </div>
       <div class="favorites-season">
-        <div class="favorites-winter">
+        <div class="favorites-winter season-selected-two">
           <article class="book">
             <div class="book-description">
               <h3>
@@ -204,8 +204,8 @@
               <p>
                 A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.
               </p>
-              <button class="book-description-own" disabled>
-                Own
+              <button class="book-description-buy">
+                Buy
               </button>
             </div>
             <img src="../library/assets/images/winter-4.jpg" title="Winter-4" alt="Winter-4">
@@ -278,8 +278,8 @@
               <p>
                 A fascinating story of a teenage girl who marries a man twice her age with the promise to bring her to America. Her marriage is an opportunity for her family to eventually immigrate. For fans of Isabel Allende and Julia Alvarez.
               </p>
-              <button class="book-description-own" disabled>
-                Own
+              <button class="book-description-buy">
+                Buy
               </button>
             </div>
             <img src="../library/assets/images/spring-4.jpg" title="Spring-4" alt="Spring-4">

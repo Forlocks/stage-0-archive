@@ -50,7 +50,6 @@
 
 html {
 	scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 body {
@@ -58,7 +57,6 @@ body {
   max-width: 1440px;
   margin: 0 auto;
   background-color: #8e8e8e;
-  overflow-x: hidden;
 }
 
 header {
@@ -230,7 +228,7 @@ header img {
 
 .about-slider-space {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 100%;
   max-height: 38.889vw;
@@ -247,7 +245,7 @@ header img {
 
 .about-slider {
   display: block;
-  width: 100%;
+  width: 97.222%;
   height: 100%;
   overflow: hidden;
 }
@@ -255,9 +253,11 @@ header img {
 .about-slider-line {
   display: flex;
   justify-content: space-between;
-  width: 163.195%;
+  position: relative;
+  left: 0px;
+  width: 167.857%;
   max-height: 38.889vw;
-  margin-left: 20px;
+  transition: all ease 1s;
 }
 
 .about img {
@@ -312,20 +312,8 @@ header img {
   background-color: #0c0c0e;
 }
 
-.custom-button::before {
-  content: '';
-  box-sizing: border-box;
-  display: none;
-  position: absolute;
-  width: 26px;
-  height: 26px;
-  border: 5px solid #ffffff;
-  border-radius: 50%;
+.custom-button-selected {
   background-color: #BB945F;
-}
-
-.original-button:checked + .custom-button::before {
-  display: block;
 }
 
 .favorites {
@@ -335,7 +323,6 @@ header img {
   width: 100%;
   height: 1439px;
   background-color: #ffffff;
-  overflow: hidden;
 }
 
 .favorites h2 {
@@ -370,14 +357,16 @@ header img {
 .radio {
   display: flex;
   width: 100%;
-  height: 104px;
+  height: 50px;
+  margin-top: 27px;
+  background-color: #ffffff;
 }
 
 .radio form {
   display: flex;
   align-items: center;
   height: 100%;
-  margin-left: 15px;
+  padding-left: 15px;
 }
 
 .radio label {
@@ -446,6 +435,7 @@ header img {
   position: relative;
   width: 100%;
   height: 1150px;
+  margin-top: 27px;
 }
 
 .favorites-winter {
@@ -456,36 +446,60 @@ header img {
   width: 97.222%;
   height: 100%;
   background-color: #ffffff;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s ease-in-out;
 }
 
 .favorites-spring {
-  display: none;
+  display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   position: absolute;
   width: 97.222%;
   height: 100%;
   background-color: #ffffff;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s ease-in-out;
 }
 
 .favorites-summer {
-  display: none;
+  display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   position: absolute;
   width: 97.222%;
   height: 100%;
   background-color: #ffffff;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s ease-in-out;
 }
 
 .favorites-autumn {
-  display: none;
+  display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   position: absolute;
   width: 97.222%;
   height: 100%;
   background-color: #ffffff;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s ease-in-out;
+}
+
+.season-selected-one {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s ease-in-out;
+}
+
+.season-selected-two {
+  opacity: 1;
+  visibility: visible;
+  transition: 0.5s ease-in-out;
 }
 
 .book {
