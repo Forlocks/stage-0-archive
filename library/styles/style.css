@@ -54,9 +54,198 @@ html {
 
 body {
   display: block;
+  position: relative;
   max-width: 1440px;
   margin: 0 auto;
   background-color: #8e8e8e;
+}
+
+.black {
+  filter: brightness(25%);
+  transition: filter 0.5s;
+}
+
+.modal-register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin: -131px 0 0 -125px;
+  width: 250px;
+  height: 0;
+  background-color: #ffffff;
+  opacity: 0;
+  overflow: hidden;
+  transition: 0.5s ease-in-out;
+  z-index: 6;
+}
+
+.modal-register-selected {
+  height: 382px;
+  opacity: 1;
+  overflow: visible;
+  transition: 0.5s ease-in-out;
+}
+
+.modal-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin: -131px 0 0 -125px;
+  width: 250px;
+  height: 0;
+  background-color: #ffffff;
+  opacity: 0;
+  overflow: hidden;
+  transition: 0.5s ease-in-out;
+  z-index: 6;
+}
+
+.modal-login-selected {
+  height: 262px;
+  opacity: 1;
+  overflow: visible;
+  transition: 0.5s ease-in-out;
+}
+
+.modal-header {
+  display: block;
+  width: 100%;
+  height: 20px;
+  margin-top: 20px;
+  text-align: center;
+  font-family: Forum, serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  color: #000000;
+}
+
+.modal-login form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 202px;
+  height: 162px;
+  margin-top: 20px;
+}
+
+.modal-register form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 202px;
+  height: 282px;
+  margin-top: 20px;
+}
+
+.modal-text {
+  display: block;
+  width: 100%;
+  height: 20px;
+  text-align: start;
+  font-family: Inter, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+  color: #000000;
+}
+
+.modal-input {
+  display: block;
+  width: 202px;
+  height: 22px;
+  padding: 5px;
+  border: 1px solid #bb945f;
+  font-family: Inter, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0.6px;
+  color: #8E8E8E;;
+  background: #ffffff;
+  outline: 0;
+}
+
+.modal-button {
+  display: block;
+  width: 75px;
+  height: 30px;
+  border-radius: 2px;
+  border: 1px solid #0c0c0e;
+  margin-top: 10px;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  color: #0c0c0e;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.modal-button:hover {
+  animation-name: button;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.modal-description {
+  display: block;
+  width: 200px;
+  height: 12px;
+  margin-top: 10px;
+  text-align: start;
+  font-family: Inter, sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: normal;
+  color: #000000;
+}
+
+.modal-register span {
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.modal-register span:hover {
+  color: #8E8E8E;
+  transition: color 0.5s;
+}
+
+.modal-login span {
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.modal-login span:hover {
+  color: #8E8E8E;
+  transition: color 0.5s;
+}
+
+.modal-img {
+  display: block;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
 }
 
 header {
@@ -66,6 +255,7 @@ header {
   width: 100%;
   height: 90px;
   background-color: #0c0c0e;
+  transition: filter 0.5s;
 }
 
 .header-left {
@@ -154,6 +344,107 @@ header img {
 
 .burger-icon {
   display: none;
+}
+
+.authorization {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  width: 80px;
+  height: 0;
+  top: 59px;
+  right: 20px;
+  background-color: #ffffff;
+  opacity: 0;
+  overflow: hidden;
+  transition: 0.5s ease-in-out;
+}
+
+.authorization-selected {
+  z-index: 5;
+  opacity: 1;
+  height: 115px;
+  overflow: visible;
+  transition: 0.5s ease-in-out;
+}
+
+.authorization-complete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  width: 80px;
+  height: 0;
+  top: 59px;
+  right: 20px;
+  background-color: #ffffff;
+  opacity: 0;
+  overflow: hidden;
+  transition: 0.5s ease-in-out;
+}
+
+.authorization-profile {
+  display: block;
+  width: 100%;
+  height: 20px;
+  margin-top: 5px;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #000000;
+}
+
+.authorization-underline {
+  display: block;
+  width: 40px;
+  height: 1px;
+  margin-top: 5px;
+  background-color: #bb945f;
+}
+
+.authorization-log-in {
+  display: block;
+  width: 100%;
+  height: 20px;
+  margin-top: 15px;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #000000;
+  cursor: pointer;
+}
+
+.authorization-log-in:hover {
+  color: #8E8E8E;
+  transition: color 0.5s;
+}
+
+.authorization-register {
+  display: block;
+  width: 100%;
+  height: 20px;
+  margin-top: 10px;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #000000;
+  cursor: pointer;
+}
+
+.authorization-register:hover {
+  color: #8E8E8E;
+  transition: color 0.5s;
+}
+
+main {
+  transition: filter 0.5s;
 }
 
 .welcome {
@@ -1034,8 +1325,7 @@ header img {
   align-items: center;
   width: 520px;
   height: 66px;
-  padding-bottom: 2px;
-  padding-left: 20px;
+  padding: 20px;
   border-radius: 10px;
   font-family: Forum, serif;
   font-size: 30px;
@@ -1044,6 +1334,7 @@ header img {
   letter-spacing: 0.6px;
   color: #8e8e8e;
   background: #ffffff;
+  outline: 0;
 }
 
 .cards-button-left {
@@ -1144,6 +1435,7 @@ footer {
   width: 100%;
   height: 250px;
   background-color: #0c0c0e;
+  transition: filter 0.5s;
 }
 
 .footer-first {
