@@ -384,7 +384,6 @@ submit.addEventListener('click', function() {
   let userId = 'User' + createId(storage);
 
   storage[userId] = JSON.stringify(user);
-  storage.clear();
   console.log(storage);
 });
 
