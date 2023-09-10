@@ -4,15 +4,16 @@ console.log('Все пункты выполнены в соответствии 
 
 
 
-document.querySelector('.burger-icon').addEventListener('click', function() { //Открытие бургер-меню при клике по иконке трёх полосок
+document.querySelector('.burger-icon').addEventListener('click', function() { //Функционал бургер-меню
   document.querySelector('.header').classList.add('open');
+  document.querySelector('.authorization').classList.remove('authorization-selected');
 });
 
-document.querySelector('.cross-icon').addEventListener('click', function() { //Закрытие бургер-меню при клике по иконке крестика
+document.querySelector('.cross-icon').addEventListener('click', function() {
   document.querySelector('.header').classList.remove('open');
 });
 
-document.querySelector('.action-1').addEventListener('click', function() { //Закрытие бургер-меню при клике по ссылкам навигации
+document.querySelector('.action-1').addEventListener('click', function() {
   document.querySelector('.header').classList.remove('open');
 });
 document.querySelector('.action-2').addEventListener('click', function() {
@@ -28,8 +29,9 @@ document.querySelector('.action-5').addEventListener('click', function() {
   document.querySelector('.header').classList.remove('open');
 });
 
-document.addEventListener("mouseup", function(event) { //Закрытие бургер-меню при клике вне его области
-  var obj = document.querySelector(".header-right");
+document.addEventListener('mouseup', function(event) {
+  let obj = document.querySelector('.header-right');
+
   if (!obj.contains(event.target)) {
     document.querySelector('.header').classList.remove('open');
   }
@@ -261,3 +263,129 @@ document.querySelector('.radio').getElementsByTagName('form')[0].children[3].add
     }, 500)
   }
 });
+
+
+
+
+
+document.querySelector('.profile-icon-1').addEventListener('click', function() { //Функционал кнопки профиля
+  document.querySelector('.authorization').classList.toggle('authorization-selected');
+});
+document.querySelector('.profile-icon-2').addEventListener('click', function() {
+  document.querySelector('.authorization').classList.toggle('authorization-selected');
+  document.querySelector('.header').classList.remove('open');
+});
+
+document.addEventListener('mouseup', function(event) {
+  let obj1 = document.querySelector('.authorization');
+  let obj2 = document.querySelector('.profile-icon-1');
+  let obj3 = document.querySelector('.profile-icon-2');
+
+  if (!obj1.contains(event.target) && !obj2.contains(event.target) && !obj3.contains(event.target)) {
+    document.querySelector('.authorization').classList.remove('authorization-selected');
+  }
+});
+
+
+
+
+
+document.querySelector('.authorization-log-in').addEventListener('click', function() { //Функционал модальных окон регистрации и авторизации
+  document.querySelector('.modal-login').classList.add('modal-login-selected');
+  document.querySelector('.authorization').classList.toggle('authorization-selected');
+  document.querySelector('header').classList.add('black');
+  document.querySelector('main').classList.add('black');
+  document.querySelector('footer').classList.add('black');
+})
+document.querySelector('.authorization-register').addEventListener('click', function() {
+  document.querySelector('.modal-register').classList.add('modal-register-selected');
+  document.querySelector('.authorization').classList.toggle('authorization-selected');
+  document.querySelector('header').classList.add('black');
+  document.querySelector('main').classList.add('black');
+  document.querySelector('footer').classList.add('black');
+})
+document.getElementById('modal-img-login').addEventListener('click', function() {
+  document.querySelector('.modal-login').classList.remove('modal-login-selected');
+  document.querySelector('header').classList.remove('black');
+  document.querySelector('main').classList.remove('black');
+  document.querySelector('footer').classList.remove('black');
+})
+document.getElementById('modal-img-register').addEventListener('click', function() {
+  document.querySelector('.modal-register').classList.remove('modal-register-selected');
+  document.querySelector('header').classList.remove('black');
+  document.querySelector('main').classList.remove('black');
+  document.querySelector('footer').classList.remove('black');
+})
+
+document.addEventListener('mouseup', function(event) {
+  let obj4 = document.querySelector('.modal-login-selected');
+
+  if (!obj4.contains(event.target)) {
+    document.querySelector('.modal-login-selected').classList.remove('modal-login-selected');
+    document.querySelector('header').classList.remove('black');
+  document.querySelector('main').classList.remove('black');
+  document.querySelector('footer').classList.remove('black');
+  }
+});
+document.addEventListener('mouseup', function(event) {
+  let obj5 = document.querySelector('.modal-register-selected');
+
+  if (!obj5.contains(event.target)) {
+    document.querySelector('.modal-register-selected').classList.remove('modal-register-selected');
+    document.querySelector('header').classList.remove('black');
+    document.querySelector('main').classList.remove('black');
+    document.querySelector('footer').classList.remove('black');
+  }
+});
+
+document.getElementById('login-question').addEventListener('click', function() {
+  setTimeout(function() {document.querySelector('.modal-login').classList.add('modal-login-selected')}, 500);
+});
+document.getElementById('register-question').addEventListener('click', function() {
+  setTimeout(function() {document.querySelector('.modal-register').classList.add('modal-register-selected')}, 500);
+})
+document.getElementById('login-question').addEventListener('click', function() {
+  document.querySelector('.modal-register').classList.remove('modal-register-selected');
+})
+document.getElementById('register-question').addEventListener('click', function() {
+  document.querySelector('.modal-login').classList.remove('modal-login-selected');
+})
+
+
+
+
+
+let firstName = document.getElementById('first-name'); //Функционал формы регистрации
+let lastName = document.getElementById('last-name');
+let mail = document.getElementById('mail');
+let password = document.getElementById('password');
+let submit = document.getElementById('button-register');
+let storage = localStorage;
+
+function User(firstName, lastName, mail, password) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.mail = mail;
+  this.password = password;
+}
+
+function createId(storage) {
+  return Object.keys(storage).length;
+}
+
+submit.addEventListener('click', function() {
+  let firstNameUser = firstName.value;
+  let lastNameUser = lastName.value;
+  let mailUser = mail.value;
+  let passwordUser = password.value;
+
+  let user = new User(firstNameUser, lastNameUser, mailUser, passwordUser);
+
+  let userId = 'User' + createId(storage);
+
+  storage[userId] = JSON.stringify(user);
+  storage.clear();
+  console.log(storage);
+});
+
+alert('Здравствуйте, прошу понять и простить... Не успел сделать вовремя из-за начала 4 курса в универе, только 5 дней назад жизнь стала стабильной после приезда. Часть функционала работает, но не вся, если вам не сложно, проверьте пожалуйста мою работу через день или два.');
