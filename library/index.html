@@ -12,6 +12,54 @@
   <script defer src="script.js"></script>
 </head>
 <body class="body">
+  <div class="modal-login">
+    <p class="modal-header">LOGIN</p>
+    <form>
+      <p class="modal-text">E-mail or readers card</p>
+      <label>
+        <input class="modal-input" type="text" required>
+      </label>
+      <p class="modal-text">Password</p>
+      <label>
+        <input class="modal-input" type="text" required>
+      </label>
+      <button class="modal-button" type="submit">
+        Log In
+      </button>
+    </form>
+    <p class="modal-description">
+      Don’t have an account?&nbsp;&nbsp;&nbsp;<span id="register-question">Register</span>
+    </p>
+    <img class="modal-img" id="modal-img-login" src="../library/assets/icons/cross-black.svg" title="Сross-black icon" alt="Cross-black icon">
+  </div>
+  <div class="modal-register">
+    <p class="modal-header">REGISTER</p>
+    <form>
+      <p class="modal-text">First name</p>
+      <label>
+        <input id="first-name" class="modal-input" type="text" required>
+      </label>
+      <p class="modal-text">Last name</p>
+      <label>
+        <input id="last-name" class="modal-input" type="text" required>
+      </label>
+      <p class="modal-text">E-mail</p>
+      <label>
+        <input id="mail" class="modal-input" type="text" required>
+      </label>
+      <p class="modal-text">Password</p>
+      <label>
+        <input id="password" class="modal-input" type="text" required>
+      </label>
+      <button id="button-register" class="modal-button" type="submit">
+        Sign Up
+      </button>
+    </form>
+    <p class="modal-description">
+      Already have an account?&nbsp;&nbsp;&nbsp;<span id="login-question">Login</span>
+    </p>
+    <img class="modal-img" id="modal-img-register" src="../library/assets/icons/cross-black.svg" title="Сross-black icon" alt="Cross-black icon">
+  </div>
   <header class="header">
     <div class="header-left">
       <h1>
@@ -49,6 +97,18 @@
       <span></span>
       <span></span>
     </button>
+    <div class="authorization">
+      <p class="authorization-profile">Profile</p>
+      <div class="authorization-underline"></div>
+      <p class="authorization-log-in">Log In</p>
+      <p class="authorization-register">Register</p>
+    </div>
+    <div class="authorization-complete">
+      <p class="authorization-profile">Profile</p>
+      <div class="authorization-underline"></div>
+      <p class="authorization-log-in">My profile</p>
+      <p class="authorization-register">Log Out</p>
+    </div>
   </header>
   <main>
     <section class="welcome">
