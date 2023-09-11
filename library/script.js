@@ -293,26 +293,34 @@ document.addEventListener('mouseup', function(event) {
 document.querySelector('.authorization-log-in').addEventListener('click', function() { //Функционал модальных окон регистрации и авторизации
   document.querySelector('.modal-login').classList.add('modal-login-selected');
   document.querySelector('.authorization').classList.toggle('authorization-selected');
-  document.querySelector('header').classList.add('black');
+  document.querySelector('.header-left').classList.add('black');
+  document.querySelector('.profile-icon-1').classList.add('black');
+  document.querySelector('.burger-icon').classList.add('black');
   document.querySelector('main').classList.add('black');
   document.querySelector('footer').classList.add('black');
 })
 document.querySelector('.authorization-register').addEventListener('click', function() {
   document.querySelector('.modal-register').classList.add('modal-register-selected');
   document.querySelector('.authorization').classList.toggle('authorization-selected');
-  document.querySelector('header').classList.add('black');
+  document.querySelector('.header-left').classList.add('black');
+  document.querySelector('.profile-icon-1').classList.add('black');
+  document.querySelector('.burger-icon').classList.add('black');
   document.querySelector('main').classList.add('black');
   document.querySelector('footer').classList.add('black');
 })
 document.getElementById('modal-img-login').addEventListener('click', function() {
   document.querySelector('.modal-login').classList.remove('modal-login-selected');
-  document.querySelector('header').classList.remove('black');
+  document.querySelector('.header-left').classList.remove('black');
+  document.querySelector('.profile-icon-1').classList.remove('black');
+  document.querySelector('.burger-icon').classList.remove('black');
   document.querySelector('main').classList.remove('black');
   document.querySelector('footer').classList.remove('black');
 })
 document.getElementById('modal-img-register').addEventListener('click', function() {
   document.querySelector('.modal-register').classList.remove('modal-register-selected');
-  document.querySelector('header').classList.remove('black');
+  document.querySelector('.header-left').classList.remove('black');
+  document.querySelector('.profile-icon-1').classList.remove('black');
+  document.querySelector('.burger-icon').classList.remove('black');
   document.querySelector('main').classList.remove('black');
   document.querySelector('footer').classList.remove('black');
 })
@@ -322,9 +330,11 @@ document.addEventListener('mouseup', function(event) {
 
   if (!obj4.contains(event.target)) {
     document.querySelector('.modal-login-selected').classList.remove('modal-login-selected');
-    document.querySelector('header').classList.remove('black');
-  document.querySelector('main').classList.remove('black');
-  document.querySelector('footer').classList.remove('black');
+    document.querySelector('.header-left').classList.remove('black');
+    document.querySelector('.profile-icon-1').classList.remove('black');
+    document.querySelector('.burger-icon').classList.remove('black');
+    document.querySelector('main').classList.remove('black');
+    document.querySelector('footer').classList.remove('black');
   }
 });
 document.addEventListener('mouseup', function(event) {
@@ -332,7 +342,9 @@ document.addEventListener('mouseup', function(event) {
 
   if (!obj5.contains(event.target)) {
     document.querySelector('.modal-register-selected').classList.remove('modal-register-selected');
-    document.querySelector('header').classList.remove('black');
+    document.querySelector('.header-left').classList.remove('black');
+    document.querySelector('.profile-icon-1').classList.remove('black');
+    document.querySelector('.burger-icon').classList.remove('black');
     document.querySelector('main').classList.remove('black');
     document.querySelector('footer').classList.remove('black');
   }
