@@ -4,6 +4,12 @@ console.log('Все пункты выполнены в соответствии 
 
 
 
+let loginState = document.querySelector('.body');
+
+
+
+
+
 document.querySelector('.burger-icon').addEventListener('click', function() { //Функционал бургер-меню
   document.querySelector('.header').classList.add('open');
   document.querySelector('.authorization').classList.remove('authorization-selected');
@@ -41,11 +47,11 @@ document.addEventListener('mouseup', function(event) {
 
 
 
-let offsetLeft = 0;
+let offsetLeft = 0; //Функционал слайдера
 let widthWindow = window.innerWidth;
 const sliderLine = document.querySelector('.about-slider-line');
 
-window.addEventListener('resize', function() { //Контроль работы слайдера при изменении разрешения без обновления страницы
+window.addEventListener('resize', function() {
   offsetLeft = 0;
 
   sliderLine.style.left = offsetLeft + '%';
@@ -55,7 +61,7 @@ window.addEventListener('resize', function() { //Контроль работы �
   widthWindow = window.innerWidth;
 });
 
-document.getElementById('about-button-1').addEventListener('click', function() { //Функционал кнопок пагинации слайдера
+document.getElementById('about-button-1').addEventListener('click', function() {
   if (widthWindow > 1250) {
     offsetLeft = 0;
     sliderLine.style.left = offsetLeft + '%';
@@ -101,7 +107,7 @@ document.getElementById('about-button-5').addEventListener('click', function() {
   this.querySelector('.custom-button').classList.add('custom-button-selected');
 });
 
-document.getElementById('arrow-left').addEventListener('click', function() { //Функционал стрелки слайдера "Влево"
+document.getElementById('arrow-left').addEventListener('click', function() {
   offsetLeft = offsetLeft + 475;
 
   switch (offsetLeft) {
@@ -130,7 +136,7 @@ document.getElementById('arrow-left').addEventListener('click', function() { //�
   }
 });
 
-document.getElementById('arrow-right').addEventListener('click', function() { //Функционал стрелки слайдера "Вправо"
+document.getElementById('arrow-right').addEventListener('click', function() {
   offsetLeft = offsetLeft - 475;
 
   switch (offsetLeft) {
@@ -268,134 +274,224 @@ document.querySelector('.radio').getElementsByTagName('form')[0].children[3].add
 
 
 
-document.querySelector('.profile-icon-1').addEventListener('click', function() { //Функционал кнопки профиля
-  document.querySelector('.authorization').classList.toggle('authorization-selected');
-});
-document.querySelector('.profile-icon-2').addEventListener('click', function() {
-  document.querySelector('.authorization').classList.toggle('authorization-selected');
-  document.querySelector('.header').classList.remove('open');
-});
-
-document.addEventListener('mouseup', function(event) {
-  let obj1 = document.querySelector('.authorization');
-  let obj2 = document.querySelector('.profile-icon-1');
-  let obj3 = document.querySelector('.profile-icon-2');
-
-  if (!obj1.contains(event.target) && !obj2.contains(event.target) && !obj3.contains(event.target)) {
-    document.querySelector('.authorization').classList.remove('authorization-selected');
-  }
-});
 
 
-
-
-
-document.querySelector('.authorization-log-in').addEventListener('click', function() { //Функционал модальных окон регистрации и авторизации
-  document.querySelector('.modal-login').classList.add('modal-login-selected');
-  document.querySelector('.authorization').classList.toggle('authorization-selected');
-  document.querySelector('.header-left').classList.add('black');
-  document.querySelector('.profile-icon-1').classList.add('black');
-  document.querySelector('.burger-icon').classList.add('black');
-  document.querySelector('main').classList.add('black');
-  document.querySelector('footer').classList.add('black');
-})
-document.querySelector('.authorization-register').addEventListener('click', function() {
-  document.querySelector('.modal-register').classList.add('modal-register-selected');
-  document.querySelector('.authorization').classList.toggle('authorization-selected');
-  document.querySelector('.header-left').classList.add('black');
-  document.querySelector('.profile-icon-1').classList.add('black');
-  document.querySelector('.burger-icon').classList.add('black');
-  document.querySelector('main').classList.add('black');
-  document.querySelector('footer').classList.add('black');
-})
-document.getElementById('modal-img-login').addEventListener('click', function() {
-  document.querySelector('.modal-login').classList.remove('modal-login-selected');
-  document.querySelector('.header-left').classList.remove('black');
-  document.querySelector('.profile-icon-1').classList.remove('black');
-  document.querySelector('.burger-icon').classList.remove('black');
-  document.querySelector('main').classList.remove('black');
-  document.querySelector('footer').classList.remove('black');
-})
-document.getElementById('modal-img-register').addEventListener('click', function() {
-  document.querySelector('.modal-register').classList.remove('modal-register-selected');
-  document.querySelector('.header-left').classList.remove('black');
-  document.querySelector('.profile-icon-1').classList.remove('black');
-  document.querySelector('.burger-icon').classList.remove('black');
-  document.querySelector('main').classList.remove('black');
-  document.querySelector('footer').classList.remove('black');
-})
-
-document.addEventListener('mouseup', function(event) {
-  let obj4 = document.querySelector('.modal-login-selected');
-
-  if (!obj4.contains(event.target)) {
-    document.querySelector('.modal-login-selected').classList.remove('modal-login-selected');
+if (!loginState.classList.contains('true')) { // Пользователь не авторизован
+  document.querySelector('.profile-icon-1').addEventListener('click', function() { //Функционал кнопки профиля
+    document.querySelector('.authorization').classList.toggle('authorization-selected');
+  });
+  document.querySelector('.profile-icon-2').addEventListener('click', function() {
+    document.querySelector('.authorization').classList.toggle('authorization-selected');
+    document.querySelector('.header').classList.remove('open');
+  });
+  document.addEventListener('mouseup', function(event) {
+    let obj1 = document.querySelector('.authorization');
+    let obj2 = document.querySelector('.profile-icon-1');
+    let obj3 = document.querySelector('.profile-icon-2');
+    if (!obj1.contains(event.target) && !obj2.contains(event.target) && !obj3.contains(event.target)) {
+      document.querySelector('.authorization').classList.remove('authorization-selected');
+    }
+  });
+  document.querySelector('.authorization-log-in').addEventListener('click', function() { //Функционал модальных окон регистрации и авторизации
+    document.querySelector('.modal-login').classList.add('modal-login-selected');
+    document.querySelector('.authorization').classList.toggle('authorization-selected');
+    document.querySelector('.header-left').classList.add('black');
+    document.querySelector('.profile-icon-1').classList.add('black');
+    document.querySelector('.burger-icon').classList.add('black');
+    if (window.innerWidth > 1250) {
+      document.querySelector('.header-right').classList.add('black');
+    }
+    document.querySelector('main').classList.add('black');
+    document.querySelector('footer').classList.add('black');
+  });
+  document.querySelector('.authorization-register').addEventListener('click', function() {
+    document.querySelector('.modal-register').classList.add('modal-register-selected');
+    document.querySelector('.authorization').classList.toggle('authorization-selected');
+    document.querySelector('.header-left').classList.add('black');
+    document.querySelector('.profile-icon-1').classList.add('black');
+    document.querySelector('.burger-icon').classList.add('black');
+    if (window.innerWidth > 1250) {
+      document.querySelector('.header-right').classList.add('black');
+    }
+    document.querySelector('main').classList.add('black');
+    document.querySelector('footer').classList.add('black');
+  });
+  document.getElementById('modal-img-login').addEventListener('click', function() {
+    document.querySelector('.modal-login').classList.remove('modal-login-selected');
     document.querySelector('.header-left').classList.remove('black');
     document.querySelector('.profile-icon-1').classList.remove('black');
     document.querySelector('.burger-icon').classList.remove('black');
+    if (window.innerWidth > 1250) {
+      document.querySelector('.header-right').classList.remove('black');
+    }
     document.querySelector('main').classList.remove('black');
     document.querySelector('footer').classList.remove('black');
-  }
-});
-document.addEventListener('mouseup', function(event) {
-  let obj5 = document.querySelector('.modal-register-selected');
-
-  if (!obj5.contains(event.target)) {
-    document.querySelector('.modal-register-selected').classList.remove('modal-register-selected');
+  });
+  document.getElementById('modal-img-register').addEventListener('click', function() {
+    document.querySelector('.modal-register').classList.remove('modal-register-selected');
     document.querySelector('.header-left').classList.remove('black');
     document.querySelector('.profile-icon-1').classList.remove('black');
     document.querySelector('.burger-icon').classList.remove('black');
+    if (window.innerWidth > 1250) {
+      document.querySelector('.header-right').classList.remove('black');
+    }
     document.querySelector('main').classList.remove('black');
     document.querySelector('footer').classList.remove('black');
+  });
+  document.addEventListener('mouseup', function(event) {
+    let obj4 = document.querySelector('.modal-login-selected');
+    if (!obj4.contains(event.target)) {
+      document.querySelector('.modal-login-selected').classList.remove('modal-login-selected');
+      document.querySelector('.header-left').classList.remove('black');
+      document.querySelector('.profile-icon-1').classList.remove('black');
+      document.querySelector('.burger-icon').classList.remove('black');
+      if (window.innerWidth > 1250) {
+        document.querySelector('.header-right').classList.remove('black');
+      }
+      document.querySelector('main').classList.remove('black');
+      document.querySelector('footer').classList.remove('black');
+    }
+  });
+  document.addEventListener('mouseup', function(event) {
+    let obj5 = document.querySelector('.modal-register-selected');
+    if (!obj5.contains(event.target)) {
+      document.querySelector('.modal-register-selected').classList.remove('modal-register-selected');
+      document.querySelector('.header-left').classList.remove('black');
+      document.querySelector('.profile-icon-1').classList.remove('black');
+      document.querySelector('.burger-icon').classList.remove('black');
+      if (window.innerWidth > 1250) {
+        document.querySelector('.header-right').classList.remove('black');
+      }
+      document.querySelector('main').classList.remove('black');
+      document.querySelector('footer').classList.remove('black');
+    }
+  });
+  document.getElementById('login-question').addEventListener('click', function() {
+    setTimeout(function() {document.querySelector('.modal-login').classList.add('modal-login-selected')}, 500);
+  });
+  document.getElementById('register-question').addEventListener('click', function() {
+    setTimeout(function() {document.querySelector('.modal-register').classList.add('modal-register-selected')}, 500);
+  });
+  document.getElementById('login-question').addEventListener('click', function() {
+    document.querySelector('.modal-register').classList.remove('modal-register-selected');
+  });
+  document.getElementById('register-question').addEventListener('click', function() {
+    document.querySelector('.modal-login').classList.remove('modal-login-selected');
+  });
+  let firstName = document.getElementById('first-name'); //Функционал формы регистрации
+  let lastName = document.getElementById('last-name');
+  let mail = document.getElementById('mail');
+  let password = document.getElementById('password');
+  let submit = document.getElementById('button-register');
+  let storage = localStorage;
+  function User(firstName, lastName, mail, password, cardNumber) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.mail = mail;
+    this.password = password;
+    this.cardNumber = cardNumber;
   }
-});
-
-document.getElementById('login-question').addEventListener('click', function() {
-  setTimeout(function() {document.querySelector('.modal-login').classList.add('modal-login-selected')}, 500);
-});
-document.getElementById('register-question').addEventListener('click', function() {
-  setTimeout(function() {document.querySelector('.modal-register').classList.add('modal-register-selected')}, 500);
-})
-document.getElementById('login-question').addEventListener('click', function() {
-  document.querySelector('.modal-register').classList.remove('modal-register-selected');
-})
-document.getElementById('register-question').addEventListener('click', function() {
-  document.querySelector('.modal-login').classList.remove('modal-login-selected');
-})
-
-
-
-
-
-let firstName = document.getElementById('first-name'); //Функционал формы регистрации
-let lastName = document.getElementById('last-name');
-let mail = document.getElementById('mail');
-let password = document.getElementById('password');
-let submit = document.getElementById('button-register');
-let storage = localStorage;
-
-function User(firstName, lastName, mail, password) {
-  this.firstName = firstName;
-  this.lastName = lastName;
-  this.mail = mail;
-  this.password = password;
+  function createId(storage) {
+    return Object.keys(storage).length;
+  }
+  submit.addEventListener('click', function (e) {
+    e.preventDefault();
+    let item = link.getAttribute('href');
+    document.querySelector(item).scrollIntoView({
+        block: "center",
+        behavior: "smooth"
+    });
+    const stopScrollWindow = () => item.parentNode.scrollTo( window.scrollX, window.scrollY );
+    document.body.addEventListener("click", () => stopScrollWindow(), {once: true});
+  });
+  function generationNumber(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min
+  }
+  function decimalToHexString(n) {
+    return n.toString(16);
+  }
+  function generationCardNumber() {
+    let cardNumber = '';
+    for (let i = 1; i <= 9; i++) {
+      cardNumber += decimalToHexString( generationNumber(0, 15) ).toUpperCase();
+    }
+    return cardNumber;
+  }
+  submit.addEventListener('click', function() {
+    let firstNameUser = firstName.value;
+    let lastNameUser = lastName.value;
+    let mailUser = mail.value;
+    let passwordUser = password.value;
+    let cardNumberUser = generationCardNumber();
+    if (firstNameUser == '' || lastNameUser == '' || mailUser == '' || passwordUser =='') {
+      alert ('Fill in all the fields');
+      return;
+    }
+    const FIRST_NAME_REGEXP = /^[A-Z][a-z]+$/;
+    const LAST_NAME_REGEXP = /^[A-Z][a-z]+$/;
+    const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+    const PASSWORD_REGEXP = /^[a-zA-Z0-9_]{8,20}$/;
+    function isFirstNameValid(value) {
+      return FIRST_NAME_REGEXP.test(value);
+    }
+    function isFirstNameValid(value) {
+      return LAST_NAME_REGEXP.test(value);
+    }
+    function isEmailValid(value) {
+      return EMAIL_REGEXP.test(value);
+    }
+    function isPasswordValid(value) {
+      return PASSWORD_REGEXP.test(value);
+    }
+    if (!isFirstNameValid(firstNameUser)) {
+      alert ('The first name must begin with the only one capital letter and include at least two characters. Use only letters of the Latin alphabet. Just one word.');
+      return;
+    }
+    if (!isFirstNameValid(lastNameUser)) {
+      alert ('The last name must begin with a capital letter and include at least two characters. Use only letters of the Latin alphabet. Just one word.');
+      return;
+    }
+    if (!isEmailValid(mailUser)) {
+      alert ('Enter the correct email');
+      return;
+    }
+    if (!isPasswordValid(passwordUser)) {
+      alert ('The password length must be from 8 to 20 characters. Only letters of the Latin alphabet, numbers and "_" can be used. Without spaces.');
+      return;
+    }
+    let user = new User(firstNameUser, lastNameUser, mailUser, passwordUser, cardNumberUser);
+    let userId = 'User' + createId(storage);
+    storage[userId] = JSON.stringify(user);
+    loginState.classList.add('true');
+    document.querySelector('.modal-register').classList.remove('modal-register-selected');
+    document.querySelector('.header-left').classList.remove('black');
+    document.querySelector('.profile-icon-1').classList.remove('black');
+    document.querySelector('.burger-icon').classList.remove('black');
+    if (window.innerWidth > 1250) {
+      document.querySelector('.header-right').classList.remove('black');
+    }
+    document.querySelector('main').classList.remove('black');
+    document.querySelector('footer').classList.remove('black');
+    location.reload();
+  });
+} else if (loginState.classList.contains('true')) { //Пользователь авторизован
+  document.querySelector('.profile-icon-1').addEventListener('click', function() { //Функционал кнопки профиля
+    document.querySelector('.authorization-complete').classList.toggle('authorization-complete-selected');
+  });
+  document.querySelector('.profile-icon-2').addEventListener('click', function() {
+    document.querySelector('.authorization-complete').classList.toggle('authorization-complete-selected');
+    document.querySelector('.header').classList.remove('open');
+  });
+  document.addEventListener('mouseup', function(event) {
+    let obj1 = document.querySelector('.authorization-complete');
+    let obj2 = document.querySelector('.profile-icon-1');
+    let obj3 = document.querySelector('.profile-icon-2');
+    if (!obj1.contains(event.target) && !obj2.contains(event.target) && !obj3.contains(event.target)) {
+      document.querySelector('.authorization-complete').classList.remove('authorization-complete-selected');
+    }
+  });
 }
-
-function createId(storage) {
-  return Object.keys(storage).length;
-}
-
-submit.addEventListener('click', function() {
-  let firstNameUser = firstName.value;
-  let lastNameUser = lastName.value;
-  let mailUser = mail.value;
-  let passwordUser = password.value;
-
-  let user = new User(firstNameUser, lastNameUser, mailUser, passwordUser);
-
-  let userId = 'User' + createId(storage);
-
-  storage[userId] = JSON.stringify(user);
-});
-
 alert('Здравствуйте, прошу понять и простить... Не успел сделать вовремя из-за начала 4 курса в универе, только 5 дней назад жизнь стала стабильной после приезда. Часть функционала работает, но не вся, если вам не сложно, проверьте пожалуйста мою работу через день или два.');
+//Добавить объект с cardNumber или Email и паролем в storage как user0
