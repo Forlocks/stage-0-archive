@@ -97,6 +97,10 @@
     right: 105px;
   }
 
+  .authorization-complete {
+    right: 105px;
+  }
+
   .about {
     max-height: none;
     height: 862px;
