@@ -526,6 +526,12 @@ if (!Boolean(sessionStorage.getItem('id'))) { // ПОЛЬЗОВАТЕЛЬ НЕ �
       alert ('Enter the correct email');
       return;
     }
+    for (let i = 0; i < storage.length; i++) {
+      if (mailUser == JSON.parse(storage.getItem(storage.key(i))).mail) {
+        alert('A user with this email is already registered');
+        return;
+      }
+    }
     if (!isPasswordValid(passwordUser)) {
       alert ('The password length must be from 8 to 20 characters. Only letters of the Latin alphabet, numbers and "_" can be used. Without spaces.');
       return;
@@ -536,16 +542,6 @@ if (!Boolean(sessionStorage.getItem('id'))) { // ПОЛЬЗОВАТЕЛЬ НЕ �
     storage[userId] = JSON.stringify(user);
 
     sessionStorage.setItem('id', userId);
-
-    document.querySelector('.modal-register').classList.remove('modal-register-selected');
-    document.querySelector('.header-left').classList.remove('black');
-    document.querySelector('.profile-icon-1').classList.remove('black');
-    document.querySelector('.burger-icon').classList.remove('black');
-    if (window.innerWidth > 1250) {
-      document.querySelector('.header-right').classList.remove('black');
-    }
-    document.querySelector('main').classList.remove('black');
-    document.querySelector('footer').classList.remove('black');
 
     location.reload(); // ПЕРЕЗАГРУЗКА СТРАНИЦЫ
   });
@@ -628,10 +624,46 @@ if (Boolean(sessionStorage.getItem('id'))) { // ПОЛЬЗОВАТЕЛЬ АВТ�
     }
   });
 
-  document.querySelectorAll('.authorization-register')[1].addEventListener('click', function() {
+  document.querySelectorAll('.authorization-register')[1].addEventListener('click', function() { // Функционал кнопки "Log Out"
     sessionStorage.clear();
     location.reload();
   });
+
+  let storage = localStorage;
+  let userActive = JSON.parse( storage.getItem( sessionStorage.getItem( sessionStorage.key(0) ) ) ); // Данные пользователя
+
+  document.querySelector('.profile-icon-1').remove(); // Функционал кнопки профиля
+  document.querySelector('.profile-icon-2').remove();
+  document.getElementById('profile-icon-3').classList.add('profile-icon-3');
+  document.getElementById('profile-icon-3').append( document.createTextNode(userActive.firstName[0] + userActive.lastName[0]) );
+  document.getElementById('profile-icon-4').classList.add('profile-icon-4');
+  document.getElementById('profile-icon-4').append( document.createTextNode(userActive.firstName[0] + userActive.lastName[0]) );
+  window.addEventListener('resize', function() {
+    if (window.innerWidth <= 1250) {
+      document.getElementById('profile-icon-3').style.display = 'flex';
+    } else {
+      document.getElementById('profile-icon-3').style.display = 'none';
+    }
+  });
+  document.querySelector('.profile-icon-3').addEventListener('click', function() {
+    document.querySelector('.authorization-complete').classList.toggle('authorization-complete-selected');
+  });
+  document.querySelector('.profile-icon-4').addEventListener('click', function() {
+    document.querySelector('.authorization-complete').classList.toggle('authorization-complete-selected');
+    document.querySelector('.header').classList.remove('open');
+  });
+  document.addEventListener('mouseup', function(event) {
+    let obj1 = document.querySelector('.authorization-complete');
+    let obj2 = document.querySelector('.profile-icon-3');
+    let obj3 = document.querySelector('.profile-icon-4');
+    if (!obj1.contains(event.target) && !obj2.contains(event.target) && !obj3.contains(event.target)) {
+      document.querySelector('.authorization-complete').classList.remove('authorization-complete-selected');
+    }
+  });
+  document.getElementById('profile-icon-3').setAttribute('title', userActive.firstName + ' ' + userActive.lastName);
+  document.getElementById('profile-icon-4').setAttribute('title', userActive.firstName + ' ' + userActive.lastName);
+  document.querySelectorAll('.authorization-profile')[1].style.fontSize = '14px';
+  document.querySelectorAll('.authorization-profile')[1].append( document.createTextNode(userActive.cardNumber) );
 }
 
 alert('Здравствуйте, не успеваю, в разработке 4 этап, остальные три готовы. Если будет возможность перепроверить, пожалуйста оставьте ник видимым для связи в дискорде или проверьте диалог на платформе RSS. Заранее спасибо за понимание!');
