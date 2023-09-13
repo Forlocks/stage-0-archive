@@ -1,10 +1,4 @@
-console.log('Все пункты выполнены в соответствии с ТЗ.'); //Самооценка
-
-
-
-
-
-let loginState = document.querySelector('.body');
+console.log('Я старался успеть как мог, но 1 сентября в универе спутало планы'); //Самооценка
 
 
 
@@ -276,7 +270,7 @@ document.querySelector('.radio').getElementsByTagName('form')[0].children[3].add
 
 
 
-if (!loginState.classList.contains('true')) { // Пользователь не авторизован
+if (!Boolean(sessionStorage.getItem('id'))) { // ПОЛЬЗОВАТЕЛЬ НЕ АВТОРИЗОВАН
   document.querySelector('.profile-icon-1').addEventListener('click', function() { //Функционал кнопки профиля
     document.querySelector('.authorization').classList.toggle('authorization-selected');
   });
@@ -292,6 +286,7 @@ if (!loginState.classList.contains('true')) { // Пользователь не �
       document.querySelector('.authorization').classList.remove('authorization-selected');
     }
   });
+
   document.querySelector('.authorization-log-in').addEventListener('click', function() { //Функционал модальных окон регистрации и авторизации
     document.querySelector('.modal-login').classList.add('modal-login-selected');
     document.querySelector('.authorization').classList.toggle('authorization-selected');
@@ -378,23 +373,60 @@ if (!loginState.classList.contains('true')) { // Пользователь не �
   document.getElementById('register-question').addEventListener('click', function() {
     document.querySelector('.modal-login').classList.remove('modal-login-selected');
   });
-  let firstName = document.getElementById('first-name'); //Функционал формы регистрации
+
+  document.getElementById('authorization-log-in-cards').addEventListener('click', function() { // Открытие модального окна авторизации при клике по кнопке "Log In" в секции "Cards"
+    document.querySelector('.modal-login').classList.add('modal-login-selected');
+    document.querySelector('.authorization').classList.toggle('authorization-selected');
+    document.querySelector('.header-left').classList.add('black');
+    document.querySelector('.profile-icon-1').classList.add('black');
+    document.querySelector('.burger-icon').classList.add('black');
+    if (window.innerWidth > 1250) {
+      document.querySelector('.header-right').classList.add('black');
+    }
+    document.querySelector('main').classList.add('black');
+    document.querySelector('footer').classList.add('black');
+  });
+
+  document.getElementById('authorization-register-cards').addEventListener('click', function() { // Открытие модального окна регистрации при клике по кнопке "Sign Up" в секции "Cards"
+    document.querySelector('.modal-register').classList.add('modal-register-selected');
+    document.querySelector('.authorization').classList.toggle('authorization-selected');
+    document.querySelector('.header-left').classList.add('black');
+    document.querySelector('.profile-icon-1').classList.add('black');
+    document.querySelector('.burger-icon').classList.add('black');
+    if (window.innerWidth > 1250) {
+      document.querySelector('.header-right').classList.add('black');
+    }
+    document.querySelector('main').classList.add('black');
+    document.querySelector('footer').classList.add('black');
+  });
+
+  for (let i = 0; i <= 15; i++) { // Открытие модального окна авторизации при клике по кнопке "Buy"
+    document.querySelectorAll('.book-description-buy')[i].addEventListener('click', function() {
+      document.querySelector('.modal-login').classList.add('modal-login-selected');
+      document.querySelector('.authorization').classList.toggle('authorization-selected');
+      document.querySelector('.header-left').classList.add('black');
+      document.querySelector('.profile-icon-1').classList.add('black');
+      document.querySelector('.burger-icon').classList.add('black');
+      if (window.innerWidth > 1250) {
+        document.querySelector('.header-right').classList.add('black');
+      }
+      document.querySelector('main').classList.add('black');
+      document.querySelector('footer').classList.add('black');
+    });
+  }
+
+  let firstName = document.getElementById('first-name'); // Функционал формы регистрации
   let lastName = document.getElementById('last-name');
   let mail = document.getElementById('mail');
   let password = document.getElementById('password');
-  let submit = document.getElementById('button-register');
+  let logOne = document.getElementById('logOne');
+  let logTwo = document.getElementById('logTwo');
+  let submitReg = document.getElementById('button-register');
+  let submitLog = document.getElementById('button-log-in');
+  let submitCard = document.getElementById('button-card');
   let storage = localStorage;
-  function User(firstName, lastName, mail, password, cardNumber) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.mail = mail;
-    this.password = password;
-    this.cardNumber = cardNumber;
-  }
-  function createId(storage) {
-    return Object.keys(storage).length;
-  }
-  submit.addEventListener('click', function (e) {
+
+  submitReg.addEventListener('click', function (e) { // Отключение прокрутки при нажатии на кнопку "Sign Up"
     e.preventDefault();
     let item = link.getAttribute('href');
     document.querySelector(item).scrollIntoView({
@@ -404,35 +436,67 @@ if (!loginState.classList.contains('true')) { // Пользователь не �
     const stopScrollWindow = () => item.parentNode.scrollTo( window.scrollX, window.scrollY );
     document.body.addEventListener("click", () => stopScrollWindow(), {once: true});
   });
-  function generationNumber(min, max) {
+  submitLog.addEventListener('click', function (e) { // Отключение прокрутки при нажатии на кнопку "Log In"
+    e.preventDefault();
+    let item = link.getAttribute('href');
+    document.querySelector(item).scrollIntoView({
+        block: "center",
+        behavior: "smooth"
+    });
+    const stopScrollWindow = () => item.parentNode.scrollTo( window.scrollX, window.scrollY );
+    document.body.addEventListener("click", () => stopScrollWindow(), {once: true});
+  });
+  submitCard.addEventListener('click', function (e) { // Отключение прокрутки при нажатии на кнопку "Check the card"
+    e.preventDefault();
+    let item = link.getAttribute('href');
+    document.querySelector(item).scrollIntoView({
+        block: "center",
+        behavior: "smooth"
+    });
+    const stopScrollWindow = () => item.parentNode.scrollTo( window.scrollX, window.scrollY );
+    document.body.addEventListener("click", () => stopScrollWindow(), {once: true});
+  });
+
+  function User(firstName, lastName, mail, password, cardNumber) { // Конструктор создания объекта с данными пользователя
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.mail = mail;
+    this.password = password;
+    this.cardNumber = cardNumber;
+  }
+
+  function createId(storage) { // Создание Id пользователя по номеру
+    return Object.keys(storage).length;
+  }
+
+  function generationNumber(min, max) { // Генерация случайного числа из диапазона
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min
   }
-  function decimalToHexString(n) {
+  function decimalToHexString(n) { // Перевод числа в шестнадцатиричный формат
     return n.toString(16);
   }
-  function generationCardNumber() {
+  function generationCardNumber() { // Генерация девятизначного номера карты в шестнадцатиричном формате
     let cardNumber = '';
     for (let i = 1; i <= 9; i++) {
       cardNumber += decimalToHexString( generationNumber(0, 15) ).toUpperCase();
     }
     return cardNumber;
   }
-  submit.addEventListener('click', function() {
+
+  submitReg.addEventListener('click', function() { // Функционал кнопки "Sign Up"
     let firstNameUser = firstName.value;
     let lastNameUser = lastName.value;
     let mailUser = mail.value;
     let passwordUser = password.value;
     let cardNumberUser = generationCardNumber();
-    if (firstNameUser == '' || lastNameUser == '' || mailUser == '' || passwordUser =='') {
-      alert ('Fill in all the fields');
-      return;
-    }
+
     const FIRST_NAME_REGEXP = /^[A-Z][a-z]+$/;
     const LAST_NAME_REGEXP = /^[A-Z][a-z]+$/;
     const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
     const PASSWORD_REGEXP = /^[a-zA-Z0-9_]{8,20}$/;
+
     function isFirstNameValid(value) {
       return FIRST_NAME_REGEXP.test(value);
     }
@@ -444,6 +508,11 @@ if (!loginState.classList.contains('true')) { // Пользователь не �
     }
     function isPasswordValid(value) {
       return PASSWORD_REGEXP.test(value);
+    }
+
+    if (firstNameUser == '' || lastNameUser == '' || mailUser == '' || passwordUser == '') {
+      alert ('Fill in all the fields');
+      return;
     }
     if (!isFirstNameValid(firstNameUser)) {
       alert ('The first name must begin with the only one capital letter and include at least two characters. Use only letters of the Latin alphabet. Just one word.');
@@ -461,10 +530,13 @@ if (!loginState.classList.contains('true')) { // Пользователь не �
       alert ('The password length must be from 8 to 20 characters. Only letters of the Latin alphabet, numbers and "_" can be used. Without spaces.');
       return;
     }
+
     let user = new User(firstNameUser, lastNameUser, mailUser, passwordUser, cardNumberUser);
     let userId = 'User' + createId(storage);
     storage[userId] = JSON.stringify(user);
-    loginState.classList.add('true');
+
+    sessionStorage.setItem('id', userId);
+
     document.querySelector('.modal-register').classList.remove('modal-register-selected');
     document.querySelector('.header-left').classList.remove('black');
     document.querySelector('.profile-icon-1').classList.remove('black');
@@ -474,10 +546,73 @@ if (!loginState.classList.contains('true')) { // Пользователь не �
     }
     document.querySelector('main').classList.remove('black');
     document.querySelector('footer').classList.remove('black');
-    location.reload();
+
+    location.reload(); // ПЕРЕЗАГРУЗКА СТРАНИЦЫ
   });
-} else if (loginState.classList.contains('true')) { //Пользователь авторизован
-  document.querySelector('.profile-icon-1').addEventListener('click', function() { //Функционал кнопки профиля
+
+  submitLog.addEventListener('click', function() { // Функционал кнопки "Log In"
+    let userNumber = false; // Искомый пользователь
+
+    if (logOne.value == '' || logTwo.value == '') {
+      alert ('Fill in all the fields');
+      return;
+    }
+
+    const PASSWORD_REGEXP = /^[a-zA-Z0-9_]{8,20}$/;
+
+    function isPasswordValid(value) {
+      return PASSWORD_REGEXP.test(value);
+    }
+
+    if (!isPasswordValid(logTwo.value)) {
+      alert ('The password length must be from 8 to 20 characters. Only letters of the Latin alphabet, numbers and "_" can be used. Without spaces.');
+      return;
+    }
+
+    let key; // Для работы с localStorage
+    let value;
+
+    for (let i = 0; i < storage.length; i++) { // Поиск запрашиваемого logOne
+      key = storage.key(i);
+      value = JSON.parse(storage.getItem(key));
+      if (logOne.value == value.mail || logOne.value == value.cardNumber) {
+        userNumber = storage.key(i);
+        break;
+      }
+    }
+
+    if (!userNumber) { //Если пользователь не найден в базе данных
+      alert('The login is incorrect or does not exist');
+      return;
+    } else { // Если пользователь найден в базе данных, то начинается проверка пароля;
+      if (logTwo.value == value.password) { //Если пароль совпал
+        sessionStorage.setItem('id', userNumber);
+
+        document.querySelector('.modal-login').classList.remove('modal-login-selected');
+        document.querySelector('.header-left').classList.remove('black');
+        document.querySelector('.profile-icon-1').classList.remove('black');
+        document.querySelector('.burger-icon').classList.remove('black');
+        if (window.innerWidth > 1250) {
+          document.querySelector('.header-right').classList.remove('black');
+        }
+        document.querySelector('main').classList.remove('black');
+        document.querySelector('footer').classList.remove('black');
+
+        location.reload();
+      } else { // Если пароль не совпал
+        alert('Wrong password');
+        return
+      }
+    }
+  });
+}
+
+
+
+
+
+if (Boolean(sessionStorage.getItem('id'))) { // ПОЛЬЗОВАТЕЛЬ АВТОРИЗОВАН
+  document.querySelector('.profile-icon-1').addEventListener('click', function() { // Функционал кнопки профиля
     document.querySelector('.authorization-complete').classList.toggle('authorization-complete-selected');
   });
   document.querySelector('.profile-icon-2').addEventListener('click', function() {
@@ -492,6 +627,11 @@ if (!loginState.classList.contains('true')) { // Пользователь не �
       document.querySelector('.authorization-complete').classList.remove('authorization-complete-selected');
     }
   });
+
+  document.querySelectorAll('.authorization-register')[1].addEventListener('click', function() {
+    sessionStorage.clear();
+    location.reload();
+  });
 }
-alert('Здравствуйте, прошу понять и простить... Не успел сделать вовремя из-за начала 4 курса в универе, только 5 дней назад жизнь стала стабильной после приезда. Часть функционала работает, но не вся, если вам не сложно, проверьте пожалуйста мою работу через день или два.');
-//Добавить объект с cardNumber или Email и паролем в storage как user0
+
+alert('Здравствуйте, не успеваю, в разработке 4 этап, остальные три готовы. Если будет возможность перепроверить, пожалуйста оставьте ник видимым для связи в дискорде или проверьте диалог на платформе RSS. Заранее спасибо за понимание!');
