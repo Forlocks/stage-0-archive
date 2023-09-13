@@ -645,6 +645,11 @@ if (Boolean(sessionStorage.getItem('id'))) { // ПОЛЬЗОВАТЕЛЬ АВТ�
       document.getElementById('profile-icon-3').style.display = 'none';
     }
   });
+    if (window.innerWidth <= 1250) {
+      document.getElementById('profile-icon-3').style.display = 'flex';
+    } else {
+      document.getElementById('profile-icon-3').style.display = 'none';
+    }
   document.querySelector('.profile-icon-3').addEventListener('click', function() {
     document.querySelector('.authorization-complete').classList.toggle('authorization-complete-selected');
   });
@@ -665,5 +670,3 @@ if (Boolean(sessionStorage.getItem('id'))) { // ПОЛЬЗОВАТЕЛЬ АВТ�
   document.querySelectorAll('.authorization-profile')[1].style.fontSize = '14px';
   document.querySelectorAll('.authorization-profile')[1].append( document.createTextNode(userActive.cardNumber) );
 }
-
-alert('Здравствуйте, не успеваю, в разработке 4 этап, остальные три готовы. Если будет возможность перепроверить, пожалуйста оставьте ник видимым для связи в дискорде или проверьте диалог на платформе RSS. Заранее спасибо за понимание!');
