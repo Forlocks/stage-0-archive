@@ -667,6 +667,6 @@ if (Boolean(sessionStorage.getItem('id'))) { // ПОЛЬЗОВАТЕЛЬ АВТ�
   });
   document.getElementById('profile-icon-3').setAttribute('title', userActive.firstName + ' ' + userActive.lastName);
   document.getElementById('profile-icon-4').setAttribute('title', userActive.firstName + ' ' + userActive.lastName);
-  document.querySelectorAll('.authorization-profile')[1].style.fontSize = '14px';
+  document.querySelectorAll('.authorization-profile')[1].style.fontSize = '11px';
   document.querySelectorAll('.authorization-profile')[1].append( document.createTextNode(userActive.cardNumber) );
 }
