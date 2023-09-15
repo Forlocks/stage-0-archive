@@ -669,4 +669,54 @@ if (Boolean(sessionStorage.getItem('id'))) { // ПОЛЬЗОВАТЕЛЬ АВТ�
   document.getElementById('profile-icon-4').setAttribute('title', userActive.firstName + ' ' + userActive.lastName);
   document.querySelectorAll('.authorization-profile')[1].style.fontSize = '11px';
   document.querySelectorAll('.authorization-profile')[1].append( document.createTextNode(userActive.cardNumber) );
+
+
+
+
+
+  document.querySelectorAll('.authorization-log-in')[1].addEventListener('click', function() { //Функционал модального окна профиля
+    document.querySelector('.modal-profile').classList.add('modal-profile-selected');
+    document.querySelector('.authorization-complete').classList.toggle('authorization-complete-selected');
+    document.querySelector('.header-left').classList.add('black');
+    document.querySelector('.profile-icon-3').classList.add('black');
+    document.querySelector('.burger-icon').classList.add('black');
+    if (window.innerWidth > 1250) {
+      document.querySelector('.header-right').classList.add('black');
+    }
+    document.querySelector('main').classList.add('black');
+    document.querySelector('footer').classList.add('black');
+  });
+  document.getElementById('modal-img-profile').addEventListener('click', function() {
+    document.querySelector('.modal-profile').classList.remove('modal-profile-selected');
+    document.querySelector('.header-left').classList.remove('black');
+    document.querySelector('.profile-icon-3').classList.remove('black');
+    document.querySelector('.burger-icon').classList.remove('black');
+    if (window.innerWidth > 1250) {
+      document.querySelector('.header-right').classList.remove('black');
+    }
+    document.querySelector('main').classList.remove('black');
+    document.querySelector('footer').classList.remove('black');
+  });
+  document.addEventListener('mouseup', function(event) {
+    let obj4 = document.querySelector('.modal-profile-selected');
+    if (!obj4.contains(event.target)) {
+      document.querySelector('.modal-profile-selected').classList.remove('modal-profile-selected');
+      document.querySelector('.header-left').classList.remove('black');
+      document.querySelector('.profile-icon-3').classList.remove('black');
+      document.querySelector('.burger-icon').classList.remove('black');
+      if (window.innerWidth > 1250) {
+        document.querySelector('.header-right').classList.remove('black');
+      }
+      document.querySelector('main').classList.remove('black');
+      document.querySelector('footer').classList.remove('black');
+    }
+  });
+  document.querySelector('.modal-profile-bottom-3').addEventListener('click', function() {
+    navigator.clipboard.writeText( userActive.cardNumber );
+    alert('Card number copied to clipboard');
+  });
+
+  document.querySelector('.modal-profile-left-icon').append( document.createTextNode(userActive.firstName[0] + userActive.lastName[0]) ); // Заполнение модального окна профиля данными пользователя
+  document.querySelector('.modal-profile-left-initials').append( document.createTextNode(userActive.firstName + ' ' + userActive.lastName) );
+  document.querySelector('.modal-profile-bottom-2').append( document.createTextNode(userActive.cardNumber) );
 }

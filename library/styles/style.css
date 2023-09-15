@@ -248,6 +248,246 @@ body {
   cursor: pointer;
 }
 
+.modal-profile {
+  display: flex;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin: -200px 0 0 -300px;
+  width: 0;
+  height: 400px;
+  opacity: 0;
+  overflow: hidden;
+  transition: 0.5s ease-in-out;
+  z-index: 6;
+  background-color: #ffffff;
+}
+
+.modal-profile-selected {
+  width: 600px;
+  opacity: 1;
+  overflow: visible;
+  transition: 0.5s ease-in-out;
+}
+
+.modal-profile-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 170px;
+  height: 400px;
+  background-color: #0c0c0e;
+}
+
+.modal-profile-left-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  margin-top: 139px;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #BB945F;
+  background-color: #ffffff;
+}
+
+.modal-profile-left-initials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  margin-top: 15px;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 25px;
+  color: #000000;
+  background-color: #ffffff;
+}
+
+.modal-profile-right {
+  display: flex;
+  flex-direction: column;
+  width: 230px;
+  height: 400px;
+  background-color: #ffffff;
+}
+
+.modal-profile-right-title {
+  display: block;
+  width: 207px;
+  height: 25px;
+  margin-top: 40px;
+  margin-left: 20px;
+  text-align: center;
+  font-family: Forum, serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.8px;
+  color: #000000;
+}
+
+.modal-profile-badges {
+  display: flex;
+  justify-content: space-between;
+  width: 237px;
+  height: 81px;
+  margin-top: 40px;
+  margin-left: 20px;
+}
+
+.modal-profile-visits {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 53px;
+  height: 100%;
+}
+
+.modal-profile-bonuses {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 84px;
+  height: 100%;
+}
+
+.modal-profile-books {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 60px;
+  height: 100%;
+}
+
+.modal-profile-item-1 {
+  display: block;
+  width: 100%;
+  height: 20px;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  color: #000000;
+
+}
+
+.modal-profile-item-2 {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.modal-profile-item-3 {
+  display: block;
+  width: 100%;
+  height: 20px;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  color: #000000;
+}
+
+.modal-profile-rented-title {
+  display: block;
+  width: 164px;
+  height: 20px;
+  margin-top: 20px;
+  margin-left: 20px;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #0c0c0e;
+}
+
+.modal-profile-rented-books {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 400px;
+  height: 50px;
+  margin-top: 30px;
+  margin-left: 30px;
+  padding-left: 20px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 2px;
+  color: #000000;
+  overflow: auto;
+}
+
+.modal-profile-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 280px;
+  height: 20px;
+  margin-top: 40px;
+  margin-left: 20px;
+}
+
+.modal-profile-bottom-1 {
+  display: flex;
+  width: 124px;
+  height: 20px;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #0C0C0E;
+}
+
+.modal-profile-bottom-2 {
+  display: flex;
+  width: 113px;
+  height: 20px;
+  color: #BB945F;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.modal-profile-bottom-3 {
+  display: flex;
+  width: 14px;
+  height: 12px;
+  cursor: pointer;
+}
+
+.modal-img-profile {
+  display: block;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
 header {
   display: flex;
   justify-content: space-between;
