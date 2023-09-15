@@ -72,9 +72,9 @@ body {
   position: fixed;
   top: 50%;
   left: 50%;
-  margin: -131px 0 0 -125px;
   width: 250px;
   height: 0;
+  margin: -131px 0 0 -125px;
   background-color: #ffffff;
   opacity: 0;
   overflow: hidden;
@@ -96,9 +96,9 @@ body {
   position: fixed;
   top: 50%;
   left: 50%;
-  margin: -131px 0 0 -125px;
   width: 250px;
   height: 0;
+  margin: -131px 0 0 -125px;
   background-color: #ffffff;
   opacity: 0;
   overflow: hidden;
@@ -253,9 +253,9 @@ body {
   position: fixed;
   top: 50%;
   left: 50%;
-  margin: -200px 0 0 -300px;
   width: 0;
   height: 400px;
+  margin: -200px 0 0 -300px;
   opacity: 0;
   overflow: hidden;
   transition: 0.5s ease-in-out;
@@ -479,6 +479,100 @@ body {
 }
 
 .modal-img-profile {
+  display: block;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.modal-subscription {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 540px;
+  margin: -270px 0 0 -320px;
+  opacity: 0;
+  overflow: hidden;
+  transition: 0.5s ease-in-out;
+  z-index: 6;
+  background-color: #ffffff;
+}
+
+.modal-subscription-selected {
+  width: 640px;
+  opacity: 1;
+  overflow: visible;
+  transition: 0.5s ease-in-out;
+}
+
+.modal-subscription-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  font-family: Forum, serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.8px;
+  color: #ffffff;
+  background-color: #0c0c0e;
+}
+
+.modal-subscription-bottom {
+  display: flex;
+  width: 100%;
+  height: 480px;
+}
+
+.modal-subscription form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+  width: 235px;
+  height: 100%;
+  padding: 29px 0px 39px 33px;
+}
+
+.dollar {
+  display: block;
+  position: absolute;
+  top: 420px;
+  left: 135px;
+  width: 90px;
+  height: 20px;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 2px;
+  color: #0c0c0e;
+}
+
+.modal-subscription-right {
+  display: flex;
+  width: 405px;
+  height: 100%;
+  padding: 30px 35px 290px 40px;
+  color: #8e8e8e;
+  font-family: Inter, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 2px;
+}
+
+.modal-img-subscription {
   display: block;
   position: absolute;
   top: 25px;

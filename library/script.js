@@ -719,4 +719,43 @@ if (Boolean(sessionStorage.getItem('id'))) { // ПОЛЬЗОВАТЕЛЬ АВТ�
   document.querySelector('.modal-profile-left-icon').append( document.createTextNode(userActive.firstName[0] + userActive.lastName[0]) ); // Заполнение модального окна профиля данными пользователя
   document.querySelector('.modal-profile-left-initials').append( document.createTextNode(userActive.firstName + ' ' + userActive.lastName) );
   document.querySelector('.modal-profile-bottom-2').append( document.createTextNode(userActive.cardNumber) );
+
+  for (let i = 0; i <= 15; i++) { //Функционал модального окна покупки абонемента
+    document.querySelectorAll('.book-description-buy')[i].addEventListener('click', function() {
+      document.querySelector('.modal-subscription').classList.add('modal-subscription-selected');
+      document.querySelector('.header-left').classList.add('black');
+      document.querySelector('.profile-icon-3').classList.add('black');
+      document.querySelector('.burger-icon').classList.add('black');
+      if (window.innerWidth > 1250) {
+        document.querySelector('.header-right').classList.add('black');
+      }
+      document.querySelector('main').classList.add('black');
+      document.querySelector('footer').classList.add('black');
+    });
+    document.getElementById('modal-img-subscription').addEventListener('click', function() {
+      document.querySelector('.modal-subscription').classList.remove('modal-subscription-selected');
+      document.querySelector('.header-left').classList.remove('black');
+      document.querySelector('.profile-icon-3').classList.remove('black');
+      document.querySelector('.burger-icon').classList.remove('black');
+      if (window.innerWidth > 1250) {
+        document.querySelector('.header-right').classList.remove('black');
+      }
+      document.querySelector('main').classList.remove('black');
+      document.querySelector('footer').classList.remove('black');
+    });
+    document.addEventListener('mouseup', function(event) {
+      let obj4 = document.querySelector('.modal-subscription-selected');
+      if (!obj4.contains(event.target)) {
+        document.querySelector('.modal-subscription-selected').classList.remove('modal-subscription-selected');
+        document.querySelector('.header-left').classList.remove('black');
+        document.querySelector('.profile-icon-3').classList.remove('black');
+        document.querySelector('.burger-icon').classList.remove('black');
+        if (window.innerWidth > 1250) {
+          document.querySelector('.header-right').classList.remove('black');
+        }
+        document.querySelector('main').classList.remove('black');
+        document.querySelector('footer').classList.remove('black');
+      }
+    });
+  }
 }
