@@ -463,6 +463,10 @@ if (!Boolean(sessionStorage.getItem('id'))) { // ПОЛЬЗОВАТЕЛЬ НЕ �
     this.mail = mail;
     this.password = password;
     this.cardNumber = cardNumber;
+    this.visits = 1;
+    this.books = 0;
+    this.rented = [];
+    this.subscription = false;
   }
 
   function createId(storage) { // Создание Id пользователя по номеру
@@ -584,15 +588,23 @@ if (!Boolean(sessionStorage.getItem('id'))) { // ПОЛЬЗОВАТЕЛЬ НЕ �
       if (logTwo.value == value.password) { //Если пароль совпал
         sessionStorage.setItem('id', userNumber);
 
-        document.querySelector('.modal-login').classList.remove('modal-login-selected');
-        document.querySelector('.header-left').classList.remove('black');
-        document.querySelector('.profile-icon-1').classList.remove('black');
-        document.querySelector('.burger-icon').classList.remove('black');
-        if (window.innerWidth > 1250) {
-          document.querySelector('.header-right').classList.remove('black');
+        let userActive = JSON.parse( storage.getItem( sessionStorage.getItem( sessionStorage.key(0) ) ) ); // Данные пользователя
+
+        function rewrite(visits, books, rented, subscription) { // Функция перезаписи данных пользователя
+          userActive.visits = visits;
+          userActive.books = books;
+          if (rented != 'none') {
+            userActive.rented.push(rented);
+          }
+          userActive.subscription = subscription;
+
+          let userString = JSON.stringify( userActive );
+
+          storage.removeItem( sessionStorage.getItem( sessionStorage.key(0) ) );
+          storage.setItem(sessionStorage.getItem( sessionStorage.key(0) ), userString);
         }
-        document.querySelector('main').classList.remove('black');
-        document.querySelector('footer').classList.remove('black');
+
+        rewrite(userActive.visits + 1, userActive.books, 'none', userActive.subscription);
 
         location.reload();
       } else { // Если пароль не совпал
@@ -608,6 +620,20 @@ if (!Boolean(sessionStorage.getItem('id'))) { // ПОЛЬЗОВАТЕЛЬ НЕ �
 
 
 if (Boolean(sessionStorage.getItem('id'))) { // ПОЛЬЗОВАТЕЛЬ АВТОРИЗОВАН
+  function rewrite(visits, books, rented, subscription) { // Функция перезаписи данных пользователя
+    userActive.visits = visits;
+    userActive.books = books;
+    if (rented != 'none') {
+      userActive.rented.push(rented);
+    }
+    userActive.subscription = subscription;
+
+    let userString = JSON.stringify( userActive );
+
+    storage.removeItem( sessionStorage.getItem( sessionStorage.key(0) ) );
+    storage.setItem(sessionStorage.getItem( sessionStorage.key(0) ), userString);
+  }
+
   document.querySelector('.profile-icon-1').addEventListener('click', function() { // Функционал кнопки профиля
     document.querySelector('.authorization-complete').classList.toggle('authorization-complete-selected');
   });
@@ -720,17 +746,40 @@ if (Boolean(sessionStorage.getItem('id'))) { // ПОЛЬЗОВАТЕЛЬ АВТ�
   document.querySelector('.modal-profile-left-initials').append( document.createTextNode(userActive.firstName + ' ' + userActive.lastName) );
   document.querySelector('.modal-profile-bottom-2').append( document.createTextNode(userActive.cardNumber) );
 
-  for (let i = 0; i <= 15; i++) { //Функционал модального окна покупки абонемента
-    document.querySelectorAll('.book-description-buy')[i].addEventListener('click', function() {
-      document.querySelector('.modal-subscription').classList.add('modal-subscription-selected');
-      document.querySelector('.header-left').classList.add('black');
-      document.querySelector('.profile-icon-3').classList.add('black');
-      document.querySelector('.burger-icon').classList.add('black');
-      if (window.innerWidth > 1250) {
-        document.querySelector('.header-right').classList.add('black');
+  document.querySelectorAll('.authorization-log-in')[1].addEventListener('click', function() {
+    if (document.getElementById('visits-count').firstChild === null) {
+      document.getElementById('visits-count').append( document.createTextNode(userActive.visits) );
+      document.getElementById('visits-count').firstChild.remove();
+      document.getElementById('visits-count').append( document.createTextNode(userActive.visits) );
+      document.getElementById('books-count').append( document.createTextNode(userActive.books) );
+      document.getElementById('books-count').firstChild.remove();
+      document.getElementById('books-count').append( document.createTextNode(userActive.books) );
+    } else if (document.getElementById('visits-count').firstChild !== null) {
+      document.getElementById('visits-count').firstChild.remove();
+      document.getElementById('visits-count').append( document.createTextNode(userActive.visits) );
+      document.getElementById('books-count').firstChild.remove();
+      document.getElementById('books-count').append( document.createTextNode(userActive.books) );
+    }
+  });
+
+
+
+
+
+  // Функционал модального окна покупки абонемента
+  for (let i = 0; i <= 15; i++) { // Если абонемент не куплен
+    document.querySelectorAll('.buy')[i].addEventListener('click', function() {
+      if (userActive.subscription == false) {
+        document.querySelector('.modal-subscription').classList.add('modal-subscription-selected');
+        document.querySelector('.header-left').classList.add('black');
+        document.querySelector('.profile-icon-3').classList.add('black');
+        document.querySelector('.burger-icon').classList.add('black');
+        if (window.innerWidth > 1250) {
+          document.querySelector('.header-right').classList.add('black');
+        }
+        document.querySelector('main').classList.add('black');
+        document.querySelector('footer').classList.add('black');
       }
-      document.querySelector('main').classList.add('black');
-      document.querySelector('footer').classList.add('black');
     });
     document.getElementById('modal-img-subscription').addEventListener('click', function() {
       document.querySelector('.modal-subscription').classList.remove('modal-subscription-selected');
@@ -744,18 +793,136 @@ if (Boolean(sessionStorage.getItem('id'))) { // ПОЛЬЗОВАТЕЛЬ АВТ�
       document.querySelector('footer').classList.remove('black');
     });
     document.addEventListener('mouseup', function(event) {
-      let obj4 = document.querySelector('.modal-subscription-selected');
-      if (!obj4.contains(event.target)) {
-        document.querySelector('.modal-subscription-selected').classList.remove('modal-subscription-selected');
-        document.querySelector('.header-left').classList.remove('black');
-        document.querySelector('.profile-icon-3').classList.remove('black');
-        document.querySelector('.burger-icon').classList.remove('black');
-        if (window.innerWidth > 1250) {
-          document.querySelector('.header-right').classList.remove('black');
+      if (userActive.subscription == false) {
+        let obj4 = document.querySelector('.modal-subscription-selected');
+        if (!obj4.contains(event.target)) {
+          document.querySelector('.modal-subscription-selected').classList.remove('modal-subscription-selected');
+          document.querySelector('.header-left').classList.remove('black');
+          document.querySelector('.profile-icon-3').classList.remove('black');
+          document.querySelector('.burger-icon').classList.remove('black');
+          if (window.innerWidth > 1250) {
+            document.querySelector('.header-right').classList.remove('black');
+          }
+          document.querySelector('main').classList.remove('black');
+          document.querySelector('footer').classList.remove('black');
         }
-        document.querySelector('main').classList.remove('black');
-        document.querySelector('footer').classList.remove('black');
       }
     });
   }
+
+  for (let i = 0; i <= 15; i++) { // Если абонемент куплен
+    let workElement = document.querySelectorAll('.buy')[i];
+
+    workElement.addEventListener('click', function() {
+      if (userActive.subscription == true) {
+        rewrite(userActive.visits, userActive.books + 1, i, userActive.subscription);
+        workElement.classList.remove('book-description-buy');
+        workElement.classList.add('book-description-own');
+        workElement.setAttribute('disabled', 'true');
+        workElement.firstChild.remove();
+        workElement.append( document.createTextNode('Own') );
+
+        document.getElementById('rented').append( document.createElement('li') );
+        document.querySelectorAll('li')[document.getElementById('rented').children.length - 1].append( document.createTextNode(workElement.previousElementSibling.previousElementSibling.innerText.replace('\nBy', ',')) );
+      }
+    });
+  }
+  if (userActive.subscription == true) {
+    for (let i = 0; i < userActive.rented.length; i++) {
+        let workElement = document.querySelectorAll('.buy')[userActive.rented[i]];
+
+        workElement.classList.remove('book-description-buy');
+        workElement.classList.add('book-description-own');
+        workElement.setAttribute('disabled', 'true');
+        workElement.firstChild.remove();
+        workElement.append( document.createTextNode('Own') );
+
+        document.getElementById('rented').append( document.createElement('li') );
+        document.querySelectorAll('li')[document.getElementById('rented').children.length - 1].append( document.createTextNode(workElement.previousElementSibling.previousElementSibling.innerText.replace('\nBy', ',')) );
+    }
+  }
+
+
+
+
+
+  let submitSubscription = document.getElementById('button-subscription');
+  let = bankNumber = document.getElementById('bank-number');
+  let = codeOne = document.getElementById('code-one');
+  let = codeTwo = document.getElementById('code-two');
+  let = cvc = document.getElementById('cvc');
+  let = cardholder = document.getElementById('cardholder');
+  let = postalCode = document.getElementById('postal-code');
+  let = cityTown = document.getElementById('city-town');
+  let submitCard = document.getElementById('button-card');
+
+  submitSubscription.addEventListener('click', function (e) { // Отключение прокрутки при нажатии на кнопку "Buy" при покупке абонемента
+    e.preventDefault();
+    let item = link.getAttribute('href');
+    document.querySelector(item).scrollIntoView({
+        block: "center",
+        behavior: "smooth"
+    });
+    const stopScrollWindow = () => item.parentNode.scrollTo( window.scrollX, window.scrollY );
+    document.body.addEventListener("click", () => stopScrollWindow(), {once: true});
+  });
+  submitCard.addEventListener('click', function (e) { // Отключение прокрутки при нажатии на кнопку "Check the card"
+    e.preventDefault();
+    let item = link.getAttribute('href');
+    document.querySelector(item).scrollIntoView({
+        block: "center",
+        behavior: "smooth"
+    });
+    const stopScrollWindow = () => item.parentNode.scrollTo( window.scrollX, window.scrollY );
+    document.body.addEventListener("click", () => stopScrollWindow(), {once: true});
+  });
+
+  submitSubscription.addEventListener('click', function() { // Функционал кнопки "Buy" при покупке абонемента
+    const BANK_NUMBER_REGEXP = /^[0-9]{16}$/;
+    const CODE_REGEXP = /^[0-9]{2}$/;
+    const CVC_REGEXP = /^[0-9]{3}$/;
+
+    function isBankNumber(value) {
+      return BANK_NUMBER_REGEXP.test(value);
+    }
+    function isCode(value) {
+      return CODE_REGEXP.test(value);
+    }
+    function isCvc(value) {
+      return CVC_REGEXP.test(value);
+    }
+
+    if (bankNumber.value == '' || codeOne.value == '' || codeTwo.value == '' || cvc.value == '' || cardholder.value == '' || postalCode.value == '' || cityTown.value == '') {
+      alert ('Fill in all the fields');
+      return;
+    }
+    if (!isBankNumber(bankNumber.value)) {
+      alert ('The bank card number must consist of 16 digits without spaces');
+      return;
+    }
+    if (!isCode(codeOne.value)) {
+      alert ('The first number of the expiration code must consist of two digits without spaces');
+      return;
+    }
+    if (!isCode(codeTwo.value)) {
+      alert ('The second number of the expiration code must consist of two digits without spaces');
+      return;
+    }
+    if (!isCvc(cvc.value)) {
+      alert ('CVC code must consist of 3 digits without spaces');
+      return;
+    }
+
+    rewrite(userActive.visits, userActive.books, 'none', true);
+
+    document.querySelector('.modal-subscription').classList.remove('modal-subscription-selected');
+    document.querySelector('.header-left').classList.remove('black');
+    document.querySelector('.profile-icon-3').classList.remove('black');
+    document.querySelector('.burger-icon').classList.remove('black');
+    if (window.innerWidth > 1250) {
+      document.querySelector('.header-right').classList.remove('black');
+    }
+    document.querySelector('main').classList.remove('black');
+    document.querySelector('footer').classList.remove('black');
+  });
 }
