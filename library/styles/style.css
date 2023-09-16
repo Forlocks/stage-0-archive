@@ -437,6 +437,11 @@ body {
   overflow: auto;
 }
 
+
+.modal-profile-rented-books li {
+  padding-bottom: 5px;
+}
+
 .modal-profile-bottom {
   display: flex;
   align-items: center;
