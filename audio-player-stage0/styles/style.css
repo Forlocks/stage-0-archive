@@ -3,6 +3,18 @@
 	src: url("../assets/fonts/Inter-Regular.ttf");
 }
 
+@keyframes gradient {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -18,7 +30,9 @@ body {
   position: relative;
   height: 100vh;
   margin: 0 auto;
-  background: linear-gradient(#e66465, #9198e5);
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #f18d19, #8a5004);
+  animation: gradient 10s ease infinite;
+  background-size: 400% 400%;
 }
 
 .player {
@@ -68,7 +82,7 @@ body {
   font-family: Inter, sans-serif;
   font-size: 20px;
   font-weight: 700;
-  color: #80001c;
+  color: #400c58;
 }
 
 #song-author {
@@ -76,7 +90,7 @@ body {
   font-family: Inter, sans-serif;
   font-size: 15px;
   font-weight: 400;
-  color: #80001c;
+  color: #400c58;
 }
 
 .player-bottom-two {
@@ -186,7 +200,7 @@ body {
   width: 7px;
   height: 15px;
   border-radius: 25%;
-  border: 1px solid #641288;
+  border: 1px solid #400c58;
   background-color: #b374ce;
   cursor: pointer;
 }
@@ -196,7 +210,7 @@ body {
   width: 7px;
   height: 15px;
   border-radius: 25%;
-  border: 1px solid #641288;
+  border: 1px solid #400c58;
   background-color: #b374ce;
   cursor: pointer;
 }
@@ -219,7 +233,7 @@ body {
   font-family: Inter, sans-serif;
   font-size: 15px;
   font-weight: 500;
-  color:#641288;
+  color: #400c58;
 }
 
 #fader-time {
@@ -237,7 +251,7 @@ body {
   width: 7px;
   height: 20px;
   border-radius: 25%;
-  border: 1px solid #641288;
+  border: 1px solid #400c58;
   background-color: #b374ce;
   cursor: pointer;
 }
@@ -247,7 +261,7 @@ body {
   width: 7px;
   height: 20px;
   border-radius: 25%;
-  border: 1px solid #641288;
+  border: 1px solid #400c58;
   background-color: #b374ce;
   cursor: pointer;
 }
@@ -262,7 +276,7 @@ body {
   font-family: Inter, sans-serif;
   font-size: 15px;
   font-weight: 500;
-  color:#641288;
+  color: #400c58;
 }
 
 footer {

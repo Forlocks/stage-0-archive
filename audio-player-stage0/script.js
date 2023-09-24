@@ -40,11 +40,11 @@ songsArr[1] = {
   time: '137'
 };
 songsArr[2] = {
-  name: 'I AM GOOD',
-  author: 'David Guetta, Bebe Rexha',
+  name: 'YUM YUM',
+  author: 'LXNGVX',
   song: 'assets/songs/song-3.mp3',
   cover: 'assets/images/img-3.mp3',
-  time: '175'
+  time: '129'
 };
 
 function playAudio() {
