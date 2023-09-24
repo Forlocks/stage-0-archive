@@ -18,11 +18,7 @@ body {
   position: relative;
   height: 100vh;
   margin: 0 auto;
-  background-image: url("../assets/images/img-1.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  backdrop-filter: blur(15px);
+  background: linear-gradient(#e66465, #9198e5);
 }
 
 .player {
@@ -42,6 +38,7 @@ body {
   display: block;
   width: 100%;
   height: 60%;
+  border: none;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   object-fit: cover;

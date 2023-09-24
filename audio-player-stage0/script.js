@@ -61,7 +61,6 @@ function pauseAudio() {
   audio.pause();
 }
 function changeDesign() {
-  bigCover.style.backgroundImage = `url("assets/images/img-${songNumber + 1}.jpg")`;
   smallCover.setAttribute('src', `assets/images/img-${songNumber + 1}.jpg`);
   songName.firstChild.remove();
   songAuthor.firstChild.remove();
