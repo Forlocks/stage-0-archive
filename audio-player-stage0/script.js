@@ -108,6 +108,7 @@ function faderTimeUpdate(time) {
   outputTime.value = getTimeCode(time);
   audio.currentTime = time;
   pauseTime = time;
+  progressTime();
 }
 function progressTime() {
   inputTime.style.background = `linear-gradient(to right, #641288 ${getNumber(outputTime.value) * 100 / songsArr[songNumber].time}%, #ffffff ${getNumber(outputTime.value) * 100 / songsArr[songNumber].time}%)`;
@@ -189,8 +190,6 @@ setInterval(function() {
     outputTime.value = getTimeCode( getNumber(outputTime.value) + 1 );
 
     inputTime.value = getNumber(outputTime.value);
+    progressTime();
   }
 }, 1000);
-setInterval(function() {
-  progressTime();
-}, 50);
