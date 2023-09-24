@@ -4,12 +4,14 @@ const buttonPlay = document.getElementById('button-play');
 const buttonNext = document.getElementById('button-next');
 const buttonBack = document.getElementById('button-back');
 const buttonRepeat = document.getElementById('button-repeat');
+const buttonVolume = document.getElementById('button-volume');
 const bigCover = document.querySelector('body');
 const smallCover = document.querySelector('.player-cover');
 const songName = document.getElementById('song-name');
 const songAuthor = document.getElementById('song-author');
 const outputTime = document.getElementById('time');
 const inputTime = document.getElementById('fader-time');
+const inputVolume = document.getElementById('fader-volume');
 const songLength = document.getElementById('song-length');
 
 let isPlay = false;
@@ -18,6 +20,8 @@ let songNumber = 0;
 let pauseTime = 0;
 
 outputTime.value = '00:00';
+audio.volume = 0.5;
+progressVolume();
 
 let songsArr = [];
 
@@ -110,8 +114,21 @@ function faderTimeUpdate(time) {
   pauseTime = time;
   progressTime();
 }
+function faderVolumeUpdate(volume) {
+  audio.volume = volume / 100;
+  progressVolume();
+
+  if (audio.volume == 0) {
+    buttonVolume.setAttribute('src', 'assets/icons/volume-none.png');
+  } else {
+    buttonVolume.setAttribute('src', 'assets/icons/volume.png');
+  }
+}
 function progressTime() {
   inputTime.style.background = `linear-gradient(to right, #641288 ${getNumber(outputTime.value) * 100 / songsArr[songNumber].time}%, #ffffff ${getNumber(outputTime.value) * 100 / songsArr[songNumber].time}%)`;
+}
+function progressVolume() {
+  inputVolume.style.background = `linear-gradient(to right, #641288 ${audio.volume * 100}%, #ffffff ${audio.volume * 100}%)`;
 }
 
 buttonPlay.addEventListener('click', function() {
@@ -159,7 +176,14 @@ buttonRepeat.addEventListener('click', function() {
     isRepeat = false;
     buttonRepeat.setAttribute('src', 'assets/icons/repeat-none.png');
   }
-})
+});
+buttonVolume.addEventListener('click', function() {
+  if (window.getComputedStyle(inputVolume).display == 'none') {
+    inputVolume.style.display = 'flex';
+  } else {
+    inputVolume.style.display = 'none';
+  }
+});
 
 audio.addEventListener('ended', function() {
     if (isRepeat == false) {
