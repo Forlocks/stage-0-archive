@@ -11,10 +11,28 @@
 </head>
 <body>
   <div class="player">
-
+    <img class="player-cover" src="assets/images/img-1.jpg" alt="Cover">
+    <div class="player-bottom">
+      <div class="player-bottom-one">
+        <p id="song-name">TIRED OF PROBLEMS</p>
+        <p id="song-author">Nueki, Tolchonov, Glichery</p>
+      </div>
+      <div class="player-bottom-two">
+        <img id="button-repeat" src="assets/icons/repeat-none.png" alt="Button repeat">
+        <img id="button-back" src="assets/icons/backward.png" alt="Button back">
+        <img id="button-play" src="assets/icons/play.png" alt="Button-play">
+        <img id="button-next" src="assets/icons/forward.png" alt="Button next">
+        <img id="button-volume" src="assets/icons/volume.png" alt="Button volume">
+      </div>
+      <div class="player-bottom-three">
+        <output for="fader-time" id="time">0</output>
+        <input type="range" id="fader-time" min="0" max="109" value="0" step="1" oninput="faderTimeUpdate(value)">
+        <p id="song-length">01:49</p>
+      </div>
+    </div>
   </div>
   <footer>
-    <a href="https://rs.school/js/"><img class="rss-logo" src="assets/icons/rss.svg" title="RSS" alt="RSS"></a>
-    <a href="https://github.com/Forlocks"><img class="gh-logo"  src="assets/icons/gh.svg" title="GH" alt="GH"></a>
+    <a href="https://rs.school/js/"><img class="rss-logo" src="assets/icons/rss.svg" alt="RSS"></a>
+    <a href="https://github.com/Forlocks"><img class="gh-logo"  src="assets/icons/gh.svg" alt="GH"></a>
   </footer>
 </body>

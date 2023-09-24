@@ -1,6 +1,6 @@
 @font-face {
-	font-family: "Forum";
-	src: url("../assets/fonts/Forum-Regular.ttf");
+	font-family: "Inter";
+	src: url("../assets/fonts/Inter-Regular.ttf");
 }
 
 * {
@@ -18,7 +18,7 @@ body {
   position: relative;
   height: 100vh;
   margin: 0 auto;
-  background: url("../assets/images/img-1.jpg");
+  background-image: url("../assets/images/img-1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -27,6 +27,7 @@ body {
 
 .player {
   display: flex;
+  flex-direction: column;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -34,7 +35,192 @@ body {
   height: 400px;
   border-radius: 10px;
   margin: -200px 0 0 -166px;
-  background: linear-gradient(#e66465, #9198e5);;
+  box-shadow: 0 0 10px 2px #000000;
+}
+
+.player-cover {
+  display: block;
+  width: 100%;
+  height: 60%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  object-fit: cover;
+}
+
+.player-bottom {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height:40%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: linear-gradient(#e66465, #9198e5);
+}
+
+.player-bottom-one {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 30%;
+}
+
+#song-name {
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #80001c;
+}
+
+#song-author {
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #80001c;
+}
+
+.player-bottom-two {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40%;
+}
+
+#button-repeat {
+  display: block;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+#button-repeat:hover {
+  box-shadow: 0 0 10px 2px #ffffff;
+  background-color: rgba(255, 255, 255, 0.6);
+  transition: 0.25s;
+}
+
+#button-back {
+  display: block;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  margin-left: 75px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+#button-back:hover {
+  box-shadow: 0 0 10px 2px #ffffff;
+  background-color: rgba(255, 255, 255, 0.6);
+  transition: 0.25s;
+}
+
+#button-play {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 10px;
+  margin-right: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+#button-play:hover {
+  box-shadow: 0 0 10px 2.5px #ffffff;
+  background-color: rgba(255, 255, 255, 0.6);
+  transition: 0.25s;
+}
+
+#button-next {
+  display: block;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  margin-right: 75px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+#button-next:hover {
+  box-shadow: 0 0 10px 2px #ffffff;
+  background-color: rgba(255, 255, 255, 0.6);
+  transition: 0.25s;
+}
+
+#button-volume {
+  display: block;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+#button-volume:hover {
+  box-shadow: 0 0 10px 2px #ffffff;
+  background-color: rgba(255, 255, 255, 0.6);
+  transition: 0.25s;
+}
+
+.player-bottom-three {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 30%;
+}
+
+#time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 25px;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color:#641288;
+}
+
+#fader-time {
+  display: flex;
+  width: 200px;
+  height: 5px;
+  appearance: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#fader-time::-webkit-slider-thumb {
+  appearance: none;
+  width: 7px;
+  height: 20px;
+  border-radius: 25%;
+  border: 1px solid #641288;
+  background-color: #b374ce;
+  cursor: pointer;
+}
+
+#song-length {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 25px;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color:#641288;
 }
 
 footer {
