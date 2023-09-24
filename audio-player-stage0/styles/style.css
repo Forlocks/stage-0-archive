@@ -210,6 +210,16 @@ body {
   cursor: pointer;
 }
 
+#fader-time::-moz-range-thumb {
+  appearance: none;
+  width: 7px;
+  height: 20px;
+  border-radius: 25%;
+  border: 1px solid #641288;
+  background-color: #b374ce;
+  cursor: pointer;
+}
+
 #song-length {
   display: flex;
   justify-content: center;
@@ -231,6 +241,7 @@ footer {
   bottom: 0;
   width: 100%;
   height: 100px;
+  z-index: -2;
 }
 
 .rss-logo {
@@ -252,6 +263,15 @@ footer {
   width: 162px;
   height: 54px;
   transition: 0.5s;
+}
+
+.year {
+  margin-right: 90px;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #000000;
 }
 
 .gh-logo {
