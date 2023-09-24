@@ -169,6 +169,41 @@ body {
   transition: 0.25s;
 }
 
+#fader-volume {
+  display: none;
+  position: absolute;
+  top: 271px;
+  left: 278px;
+  width: 65px;
+  height: 5px;
+  appearance: none;
+  outline: none;
+  border-radius: 5px;
+  transform: rotate(-90deg);
+  cursor: pointer;
+  z-index: 10;
+}
+
+#fader-volume::-webkit-slider-thumb {
+  appearance: none;
+  width: 7px;
+  height: 15px;
+  border-radius: 25%;
+  border: 1px solid #641288;
+  background-color: #b374ce;
+  cursor: pointer;
+}
+
+#fader-volume::-moz-range-thumb {
+  appearance: none;
+  width: 7px;
+  height: 15px;
+  border-radius: 25%;
+  border: 1px solid #641288;
+  background-color: #b374ce;
+  cursor: pointer;
+}
+
 .player-bottom-three {
   display: flex;
   justify-content: space-evenly;
