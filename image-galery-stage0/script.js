@@ -24,6 +24,8 @@ async function getRandomImages() {
     document.querySelector('.image-box').style.display = 'none';
     document.getElementById('error-icon').style.display = 'block';
     document.querySelector('.error').style.display = 'block';
+
+    console.log(error);
   }
 }
 
@@ -46,6 +48,8 @@ async function getQueryImages(url) {
     document.querySelector('.image-box').style.display = 'none';
     document.getElementById('error-icon').style.display = 'block';
     document.querySelector('.error').style.display = 'block';
+
+    console.log(error);
   }
 }
 
