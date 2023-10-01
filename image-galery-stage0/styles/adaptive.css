@@ -8,4 +8,10 @@
   .image {
     margin: 50px 0 50px 0;
   }
+
+  .image-open {
+    width: 80vw;
+    height: calc(80vw * 0.667);
+    margin: calc(-80vw * 0.667 / 2) 0 0 -40vw;
+  }
 }
