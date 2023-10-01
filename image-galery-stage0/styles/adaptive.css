@@ -1,0 +1,11 @@
+@media (max-width: 1250px) {
+  .image-box {
+    flex-direction: row;
+    width: 768px;
+    height: 100%;
+  }
+
+  .image {
+    margin: 50px 0 50px 0;
+  }
+}
