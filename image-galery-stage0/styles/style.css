@@ -167,6 +167,7 @@ main {
   border: 5px solid rgb(197, 81, 81);
   border-radius: 25px;
   box-shadow: 0 0 20px 5px #000000;
+  z-index: 5;
 }
 
 .black {
