@@ -24,7 +24,7 @@ header {
   width: 100%;
   height: 100px;
   background-color: rgb(197, 81, 81);
-  transition: 0.5s;
+  transition: filter 0.5s;
 }
 
 .header-left {
@@ -93,13 +93,13 @@ header {
   width: 20px;
   height: 20px;
   opacity: 1;
-  transition: 0.5s;
+  transition: opacity 0.5s;
   cursor: pointer;
 }
 
 #delete-button:hover {
   opacity: 0.75;
-  transition: 0.5s;
+  transition: opacity 0.5s;
 }
 
 #search-button {
@@ -109,13 +109,13 @@ header {
   width: 25px;
   height: 25px;
   opacity: 1;
-  transition: 0.5s;
+  transition: opacity 0.5s;
   cursor: pointer;
 }
 
 #search-button:hover {
   opacity: 0.75;
-  transition: 0.5s;
+  transition: opacity 0.5s;
 }
 
 main {
@@ -126,7 +126,7 @@ main {
   width: 100%;
   min-height: calc(100vh - 200px);
   background-color: rgb(218, 186, 219);
-  transition: 0.5s;
+  transition: filter 0.5s;
 }
 
 .image-box {
@@ -146,14 +146,14 @@ main {
   border: 5px solid rgb(197, 81, 81);
   border-radius: 25px;
   box-shadow: 0 0 20px 5px #000000;
-  transition: 0.5s;
+  transition: width 0.5s, height 0.5s;
   cursor: pointer;
 }
 
 .image:hover {
   width: 550px;
   height: 330px;
-  transition: 0.5s;
+  transition: width 0.5s, height 0.5s;
 }
 
 .image-open {
@@ -200,7 +200,7 @@ footer {
   width: 100%;
   height: 100px;
   background-color: rgb(197, 81, 81);
-  transition: 0.5s;
+  transition: filter 0.5s;
 }
 
 .rss-logo {
@@ -208,13 +208,13 @@ footer {
   width: 150px;
   height: 50px;
   margin-left: 20px;
-  transition: 0.5s;
+  transition: padding 0.5s;
   cursor: pointer;
 }
 
 .rss-logo:hover {
   padding: 5px;
-  transition: 0.5s;
+  transition: padding 0.5s;
 }
 
 .year {
@@ -231,11 +231,11 @@ footer {
   width: 60px;
   height: 60px;
   margin-right: 20px;
-  transition: 0.5s;
+  transition: padding 0.5s;
   cursor: pointer;
 }
 
 .gh-logo:hover {
   padding: 5px;
-  transition: 0.5s;
+  transition: padding 0.5s;
 }
