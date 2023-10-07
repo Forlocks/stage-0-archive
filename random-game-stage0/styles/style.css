@@ -1,6 +1,6 @@
 @font-face {
-	font-family: "Modak";
-	src: url("../assets/fonts/Modak-Regular.ttf");
+	font-family: 'Modak';
+	src: url('../assets/fonts/Modak-Regular.ttf');
 }
 
 @keyframes gradient {
@@ -30,24 +30,141 @@ body {
   position: relative;
   height: 100vh;
   margin: 0 auto;
-  background: linear-gradient(-45deg, #0ae026, #62e26d, #ebff38, #eb9b07);
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #f18d19, #8a5004);
   animation: gradient 10s ease infinite;
   background-size: 400% 400%;
 }
 
-.case {
+.container {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 50%;
   left: 50%;
   width: 700px;
   height: 700px;
-  border-radius: 10px;
-  border: 10px solid rgb(255, 150, 150);
+  border-radius: 20px;
   margin: -400px 0 0 -350px;
-  box-shadow: 0 0 10px 3px #000000;
+  background-color: #036308;
+  box-shadow: 0 0 10px 4px #000000;
 }
+
+
+
+
+
+.page-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 680px;
+  height: 680px;
+  border-radius: 15px;
+  border: 5px solid rgb(201, 250, 182);
+  background-image: url('../assets/images/menu-background.jpg');
+  background-size: cover;
+}
+
+.menu-title {
+  display: block;
+  text-align: start;
+  font-family: Modak, sans-serif;
+  font-size: 100px;
+  font-weight: 400;
+  line-height: 87px;
+  color: #e71919;
+  -webkit-text-stroke: 3px #ffeae8;
+}
+
+#menu-button-play {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 50px;
+  border-radius: 25px;
+  border: 3px solid #036308;
+  text-align: start;
+  font-family: Modak, sans-serif;
+  font-size: 35px;
+  font-weight: 400;
+  line-height: 87px;
+  color: #036308;
+  background: linear-gradient(#FFFFFF, 25%, rgb(75, 255, 4));
+  cursor: pointer;
+}
+
+#menu-button-play:hover {
+  background: linear-gradient(#FFFFFF, 25%, rgb(145, 255, 102));
+}
+
+#menu-button-rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 50px;
+  border-radius: 25px;
+  border: 3px solid #036308;
+  text-align: start;
+  font-family: Modak, sans-serif;
+  font-size: 35px;
+  font-weight: 400;
+  line-height: 87px;
+  color: #036308;
+  background: linear-gradient(#FFFFFF, 25%, rgb(75, 255, 4));
+  cursor: pointer;
+}
+
+#menu-button-rating:hover {
+  background: linear-gradient(#FFFFFF, 25%, rgb(145, 255, 102));
+}
+
+#menu-button-volume {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition: box-shadow 0.5s, background-color 0.25s;
+  cursor: pointer;
+}
+
+#menu-button-volume:hover {
+  box-shadow: 0 0 10px 2px #ffffff;
+  background-color: rgba(255, 255, 255, 0.6);
+  transition: box-shadow 0.5s, background-color 0.25s;
+}
+
+
+
+
+
+.page-game {
+  display: none;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 680px;
+  height: 680px;
+  border-radius: 15px;
+  border: 5px solid rgb(201, 250, 182);
+}
+
+
+
+
+
+
+.page-score {
+  display: none;
+}
+
+
+
+
+
 
 footer {
   display: flex;
