@@ -20,11 +20,9 @@ buttonRating.addEventListener('click', function() {
 buttonVolume.addEventListener('click', function() {
   if (volume == true) {
     volume = false;
-
     buttonVolume.setAttribute('src', 'assets/icons/volume-none.png');
   } else {
     volume = true;
-
     buttonVolume.setAttribute('src', 'assets/icons/volume.png');
   }
 });
