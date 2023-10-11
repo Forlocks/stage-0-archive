@@ -1,6 +1,7 @@
 const canvas = document.getElementsByTagName('canvas')[0];
 const context = canvas.getContext('2d');
 
+let isPlay = true; // Стартовое состояние игры
 
 
 let background = new Image();
@@ -11,7 +12,8 @@ let appleYellow = new Image();
 appleYellow.src = 'assets/images/apple-yellow.png';
 let appleRed = new Image();
 appleRed.src = 'assets/images/apple-red.png';
-
+let pot = new Image();
+pot.src = 'assets/images/potSprite.png';
 
 
 let appleCell = [
@@ -32,20 +34,32 @@ let appleCell = [
   {item: appleRed, status: 0, x: 170, y: 380, dy: 2}
 ];
 let startY = [76, 46, 76, 140, 120, 140, 126, 146, 200, 240, 266, 270, 300, 370, 380];
+let potSprite = 0;
 
 
-appleRed.onload = function() {
+pot.onload = function() { // Включение игры после загрузки спрайта котла
   game();
 };
 
-
+document.addEventListener('click', function() { // Включение и выключение игры при клике на странице
+  if (isPlay == true) {
+    isPlay = false;
+  } else {
+    isPlay = true;
+    game();
+  }
+})
 
 function game() { // Игровой цикл
-  render();
-  update();
-  requestAnimFrame(game);
+  if (isPlay == false) {
+    return;
+  } else {
+    render();
+    update();
+    requestAnimationFrame(game);
+  }
 }
-function update() { // Покадровое обновление
+function update() { // Покадровое обновление координат объектов
   for (let i = 0; i < appleCell.length; i++) {
     if (appleCell[i].status === 2) {
       if (appleCell[i].y <= 614 || appleCell[i].y <= 616 || appleCell[i].y <= 618) {
@@ -57,8 +71,9 @@ function update() { // Покадровое обновление
     }
   }
 }
-function render() { // Отрисовка
+function render() { // Отрисовка изображений объектов
   context.drawImage(background, 0, 0, 670, 670);
+  context.drawImage(pot, potSprite, 0, 80, 86, 295, 584, 80, 86);
 
   for (let i = 0; i < appleCell.length; i++) {
     if (appleCell[i].status === 1 || appleCell[i].status === 2) {
@@ -100,7 +115,6 @@ function spawn() { // Спавн яблока в псевдо-рандомной
 
 
 
-
 for (let i = 0; i < 10; i++) { // Стартовый спавн 5 яблок
   spawn();
 }
@@ -132,108 +146,12 @@ setInterval(function() { // Спавн яблока в свободной яче
 }, 2000);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-let requestAnimFrame = (function() {
-  return window.requestAnimationFrame ||
-         window.webkitRequestAnimationFrame ||
-         window.mozRequestAnimationFrame ||
-         window.oRequestAnimationFrame ||
-         window.msRequesAnimationFrame ||
-         function(callback) {
-           window.setTimeout(callback, 1000 / 20);
-         };
-})();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+setInterval(function() { // Спавн яблока в свободной ячейке каждые 2 секунды
+  if ((potSprite + 80) < 960) {
+    potSprite += 80;
+  } else {
+    potSprite = 0;
+  }
+}, 75);
 
 
