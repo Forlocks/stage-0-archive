@@ -1,7 +1,69 @@
+const win = document.querySelector('.win');
+const lose = document.querySelector('.lose');
+const restart = document.getElementById('game-button-restart');
+const buttonHomeGame = document.getElementById('game-button-home');
+const buttonVolumeGame = document.getElementById('game-button-volume');
+const buttonStatusGame = document.getElementById('game-button-status');
+
+buttonHomeGame.addEventListener('click', function() {
+  reloadGame();
+  isPlay = false;
+  pageGame.style.display = 'none';
+  pageMenu.style.display = 'flex';
+});
+buttonVolumeGame.addEventListener('click', function() {
+  if (volume == true) {
+    volume = false;
+    buttonVolumeMenu.setAttribute('src', 'assets/icons/volume-none.png');
+    buttonVolumeGame.setAttribute('src', 'assets/icons/volume-none.png');
+    buttonVolumeRules.setAttribute('src', 'assets/icons/volume-none.png');
+    buttonVolumeHistory.setAttribute('src', 'assets/icons/volume-none.png');
+    mainAudio.volume = 0;
+    statusAudio.volume = 0;
+    appleRedAudio.volume = 0;
+    appleYellowAudio.volume = 0;
+    appleGreenAudio.volume = 0;
+  } else {
+    volume = true;
+    buttonVolumeMenu.setAttribute('src', 'assets/icons/volume.png');
+    buttonVolumeGame.setAttribute('src', 'assets/icons/volume.png');
+    buttonVolumeRules.setAttribute('src', 'assets/icons/volume.png');
+    buttonVolumeHistory.setAttribute('src', 'assets/icons/volume.png');
+    mainAudio.volume = 0.1;
+    statusAudio.volume = 0.3;
+    appleRedAudio.volume = 0.2;
+    appleYellowAudio.volume = 0.2;
+    appleGreenAudio.volume = 0.2;
+  }
+});
+buttonStatusGame.addEventListener('click', function() {
+  if (lifeCount > 0) {
+    if (isPlay == true) {
+      isPlay = false;
+      buttonStatusGame.setAttribute('src', 'assets/images/play.png');
+    } else {
+      isPlay = true;
+      buttonStatusGame.setAttribute('src', 'assets/images/pause.png');
+    }
+  }
+});
+restart.addEventListener('click', function() {
+  reloadGame();
+});
+
+
+
+const life = document.querySelector('.right-panel');
+const heartsArr = document.querySelectorAll('.heart');
+const score = document.getElementById('score');
 const canvas = document.getElementsByTagName('canvas')[0];
 const context = canvas.getContext('2d');
 
-let isPlay = true; // Стартовое состояние игры
+
+
+let lifeCount = 3;
+let scoreCount = 0;
+
 
 
 let background = new Image();
@@ -14,6 +76,7 @@ let appleRed = new Image();
 appleRed.src = 'assets/images/apple-red.png';
 let pot = new Image();
 pot.src = 'assets/images/potSprite.png';
+
 
 
 let appleCell = [
@@ -35,29 +98,58 @@ let appleCell = [
 ];
 let startY = [76, 46, 76, 140, 120, 140, 126, 146, 200, 240, 266, 270, 300, 370, 380];
 let potSprite = 0;
+let potX = 295;
+let potLeft = false;
+let potRight = false;
+
 
 
 pot.onload = function() { // Включение игры после загрузки спрайта котла
   game();
 };
 
-document.addEventListener('click', function() { // Включение и выключение игры при клике на странице
-  if (isPlay == true) {
+
+
+window.addEventListener('blur', function() { // Пауза при неактивной вкладке
+  if (window.getComputedStyle(pageGame).display == 'flex' && lifeCount > 0) {
     isPlay = false;
-  } else {
-    isPlay = true;
-    game();
+    buttonStatusGame.setAttribute('src', 'assets/images/play.png');
   }
-})
+});
+window.addEventListener('focus', function() { // Снятие с паузы при активной вкладке
+  if (window.getComputedStyle(pageGame).display == 'flex' && lifeCount > 0) {
+    isPlay = true;
+    buttonStatusGame.setAttribute('src', 'assets/images/pause.png');
+  }
+});
+
+
+
+document.addEventListener('keydown', function(event) { // Передвижение котла клавишами A и D
+  if (event.code == 'KeyA') {
+    potLeft = true;
+  }
+  if (event.code == 'KeyD') {
+    potRight = true;
+  }
+});
+document.addEventListener('keyup', function(event) {
+  if (event.code == 'KeyA') {
+    potLeft = false;
+  }
+  if (event.code == 'KeyD') {
+    potRight = false;
+  }
+});
+
+
 
 function game() { // Игровой цикл
-  if (isPlay == false) {
-    return;
-  } else {
+  if (isPlay == true) {
     render();
     update();
-    requestAnimationFrame(game);
   }
+  requestAnimationFrame(game);
 }
 function update() { // Покадровое обновление координат объектов
   for (let i = 0; i < appleCell.length; i++) {
@@ -67,13 +159,72 @@ function update() { // Покадровое обновление координ�
       } else {
         appleCell[i].status = 0;
         appleCell[i].y = startY[i];
+        if (appleCell[i].item == appleGreen) {
+          lifeCount -= 1;
+          heartsArr[lifeCount].setAttribute('src', 'assets/images/heart-black.png');
+          if (appleGreenAudio.currentTime == 0) {
+            appleGreenAudio.play();
+          } else {
+            appleGreenAudio.currentTime = 0;
+            appleGreenAudio.play();
+          }
+          if (lifeCount == 0) {
+            isPlay = false;
+            localStorage.setItem(`game${localStorage.length + 1}`, JSON.stringify({result: (scoreCount > 99) ? 'win' : 'lose', score: scoreCount}));
+            getHistory();
+            (scoreCount > 99) ? win.style.display = 'flex' : lose.style.display = 'flex';
+            restart.style.display = 'flex';
+            statusAudio.play();
+          }
+        }
+      }
+
+      if ((appleCell[i].y == 550 || appleCell[i].y == 552 || appleCell[i].y == 554) && appleCell[i].x + 22 >= potX && appleCell[i].x + 22 <= potX + 80) {
+        appleCell[i].status = 0;
+        appleCell[i].y = startY[i];
+        if (appleCell[i].item == appleRed) {
+          scoreCount += 1;
+          score.firstChild.remove();
+          score.append(scoreCount);
+          if (appleRedAudio.currentTime == 0) {
+            appleRedAudio.play();
+          } else {
+            appleRedAudio.currentTime = 0;
+            appleRedAudio.play();
+          }
+        } else if (appleCell[i].item == appleYellow) {
+          scoreCount += 15;
+          score.firstChild.remove();
+          score.append(scoreCount);
+          if (appleYellowAudio.currentTime == 0) {
+            appleYellowAudio.play();
+          } else {
+            appleYellowAudio.currentTime = 0;
+            appleYellowAudio.play();
+          }
+        } else if (appleCell[i].item == appleGreen) {
+          if (appleRedAudio.currentTime == 0) {
+            appleRedAudio.play();
+          } else {
+            appleRedAudio.currentTime = 0;
+            appleRedAudio.play();
+          }
+        }
       }
     }
+  }
+
+  if (potLeft == true && potX - 7 >= 0) {
+    potX -= 7;
+  }
+
+  if (potRight == true && potX + 7 <= 590) {
+    potX += 7;
   }
 }
 function render() { // Отрисовка изображений объектов
   context.drawImage(background, 0, 0, 670, 670);
-  context.drawImage(pot, potSprite, 0, 80, 86, 295, 584, 80, 86);
+  context.drawImage(pot, potSprite, 0, 80, 86, potX, 584, 80, 86);
 
   for (let i = 0; i < appleCell.length; i++) {
     if (appleCell[i].status === 1 || appleCell[i].status === 2) {
@@ -103,7 +254,7 @@ function spawn() { // Спавн яблока в псевдо-рандомной
   if (chance < 0.05) {
     appleCell[number].item = appleYellow;
     appleCell[number].dy = 6;
-  } else if (chance < 0.3) {
+  } else if (chance < 0.25) {
     appleCell[number].item = appleGreen;
     appleCell[number].dy = 4;
   } else if (chance <= 1) {
@@ -111,47 +262,73 @@ function spawn() { // Спавн яблока в псевдо-рандомной
     appleCell[number].dy = 2;
   }
 }
+function reloadGame() {
+  isPlay = true;
+
+  win.style.display = 'none';
+  lose.style.display = 'none';
+  restart.style.display = 'none';
 
 
+  for (let i = 0; i < appleCell.length; i++){
+    appleCell[i].item = appleRed;
+    appleCell[i].status = 0;
+    appleCell[i].y = startY[i];
+    appleCell[i].dy = 2;
+  }
 
+  potSprite = 0;
+  potX = 295;
 
-for (let i = 0; i < 10; i++) { // Стартовый спавн 5 яблок
-  spawn();
-}
+  lifeCount = 3;
+  scoreCount = 0;
 
-let firstApple = getRandomNumber(0, 14); // Мгновенное падение 1 яблока
-while (appleCell[firstApple].status !== 1) {
-  firstApple += 1;
-  if (firstApple == appleCell.length) {
-    firstApple = 0;
+  heartsArr[0].setAttribute('src', 'assets/images/heart-red.png');
+  heartsArr[1].setAttribute('src', 'assets/images/heart-red.png');
+  heartsArr[2].setAttribute('src', 'assets/images/heart-red.png');
+  score.firstChild.remove();
+  score.append(scoreCount);
+  buttonStatusGame.setAttribute('src', 'assets/images/pause.png');
+
+  for (let i = 0; i < 10; i++) { // Стартовый спавн 10 яблок
+    spawn();
   }
 }
-appleCell[firstApple].status = 2;
+
+
+
+for (let i = 0; i < 10; i++) { // Стартовый спавн 10 яблок
+  spawn();
+}
 
 setInterval(function() { // Падение яблока каждые 2 секунды
-  let number = getRandomNumber(0, 14);
+  if (isPlay == true) {
+    let number = getRandomNumber(0, 14);
 
-  while (appleCell[number].status !== 1) {
-    number += 1;
-    if (number == appleCell.length) {
-      number = 0;
+    while (appleCell[number].status !== 1) {
+      number += 1;
+      if (number == appleCell.length) {
+        number = 0;
+      }
+    }
+
+    appleCell[number].status = 2;
+  }
+}, 2000);
+
+setInterval(function() { // Спавн яблока в свободной ячейке каждые 2 секунды
+  if (isPlay == true) {
+    spawn();
+  }
+}, 2000);
+
+
+setInterval(function() { // Анимация котла
+  if (isPlay == true) {
+    if ((potSprite + 80) < 960) {
+      potSprite += 80;
+    } else {
+      potSprite = 0;
     }
   }
-
-  appleCell[number].status = 2;
-}, 2000);
-
-setInterval(function() { // Спавн яблока в свободной ячейке каждые 2 секунды
-  spawn();
-}, 2000);
-
-
-setInterval(function() { // Спавн яблока в свободной ячейке каждые 2 секунды
-  if ((potSprite + 80) < 960) {
-    potSprite += 80;
-  } else {
-    potSprite = 0;
-  }
-}, 75);
-
-
+}, 50);
