@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Apple Hunter</title>
+  <title>Apple Potion</title>
   <link rel="icon" href="assets/icons/favicon.png">
   <link rel="stylesheet" href="styles/reset.css">
   <link rel="stylesheet" href="styles/style.css">
@@ -11,22 +11,125 @@
 <body>
   <div class="container">
     <div class=page-menu>
-      <p class="menu-title">Apple<br>&nbsp;&nbsp;&nbsp;Hunter</p>
-      <div id="menu-button-play">
+      <p class="menu-title">Apple<br>&nbsp;&nbsp;&nbsp;&nbsp;Potion</p>
+      <div id="menu-button-play" class="menu-button">
         Play
       </div>
-      <div id="menu-button-rating">
-        Rating
+      <div id="menu-button-rules" class="menu-button">
+        Rules
+      </div>
+      <div id="menu-button-history" class="menu-button">
+        History
       </div>
       <img id="menu-button-volume" src="assets/icons/volume.png" alt="Volume">
       <script defer src="scripts/scriptMenu.js"></script>
     </div>
     <div class="page-game">
+      <div class="right-panel">
+        <img class="heart" src="assets/images/heart-red.png" alt="Heart">
+        <img class="heart" src="assets/images/heart-red.png" alt="Heart">
+        <img class="heart" src="assets/images/heart-red.png" alt="Heart">
+      </div>
+      <p id="score">0</p>
       <canvas width="670" height="670">Use a modern browser</canvas>
+      <p class="win">WIN</p>
+      <p class="lose">LOSE</p>
+      <div id="game-button-restart">Restart</div>
+      <div class="left-panel" style="width: 125px;">
+        <img id="game-button-home" class="button-home" src="assets/images/home.png" alt="Home menu">
+        <img id="game-button-status" class="button-status" src="assets/images/pause.png" alt="Play / Pause">
+        <img id="game-button-volume" class="button-volume" src="assets/icons/volume.png" alt="Volume">
+      </div>
       <script defer src="scripts/scriptGame.js"></script>
     </div>
-    <div class="page-score">
-
+    <div class="page-rules">
+      <h1 style="font-size: 50px; color: #e71919; -webkit-text-stroke: 2px #ffffff;">Make Apple Potion!</h1>
+      <p>You must prepare a magical potion by catching apples using the movement of the cauldron (keys "A" and "D"). To win, score 100 points, but the more points you earn, the better your potion will be.</p>
+      <h2>Magic of Apples:</h2>
+      <div class="apple-rule">
+        <img class="screen" src="assets/images/screen-apple-red.png" alt="Screen apple red">
+        <p>Red apples are good! For each red apple you catch, you will earn 1 point.</p>
+      </div>
+      <div class="apple-rule">
+        <img class="screen" src="assets/images/screen-apple-green.png" alt="Screen apple green">
+        <p>Green apples explode when they fall! If you fail to catch a green apple, it will explode, emitting toxic fumes, and you will lose one life. Don't forget about this, otherwise you may lose <span style="color: #000000">IF YOU DON'T CATCH</span> three green apples before reaching 100 points.</p>
+      </div>
+      <div class="apple-rule">
+        <img class="screen" src="assets/images/screen-apple-yellow.png" alt="Screen apple yellow">
+        <p>Golden apples are the rarest. If you catch a golden apple, you will earn a whopping 15 points!</p>
+      </div>
+      <div class="left-panel">
+        <img id="rules-button-home" class="button-home" src="assets/images/home.png" alt="Home menu">
+        <img id="rules-button-volume" class="button-volume" src="assets/icons/volume.png" alt="Volume">
+      </div>
+      <script defer src="scripts/scriptRules.js"></script>
+    </div>
+    <div class="page-history">
+      <h1>History</h1>
+      <table>
+        <tbody>
+          <tr>
+            <td>#</td>
+            <td>Result</td>
+            <td>Score</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td class="results"></td>
+            <td class="scores"></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td class="results"></td>
+            <td class="scores"></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td class="results"></td>
+            <td class="scores"></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td class="results"></td>
+            <td class="scores"></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td class="results"></td>
+            <td class="scores"></td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td class="results"></td>
+            <td class="scores"></td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td class="results"></td>
+            <td class="scores"></td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td class="results"></td>
+            <td class="scores"></td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td class="results"></td>
+            <td class="scores"></td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td class="results"></td>
+            <td class="scores"></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="left-panel">
+        <img id="history-button-home" class="button-home" src="assets/images/home.png" alt="Home menu">
+        <img id="history-button-volume" class="button-volume" src="assets/icons/volume.png" alt="Volume">
+      </div>
+      <script defer src="scripts/scriptHistory.js"></script>
     </div>
   </div>
   <footer>
