@@ -86,6 +86,11 @@ function getHistory() {
       localStorage.removeItem(localStorage.key(i));
     }
   }
+  for (let i = 0; i < localStorage.length; i++) {
+    if (localStorage.key(i).slice(0, 6) != 'potion') {
+      localStorage.removeItem(localStorage.key(i));
+    }
+  }
 
   for (let i = 0; i < localStorage.length && i < 10; i++) {
 
