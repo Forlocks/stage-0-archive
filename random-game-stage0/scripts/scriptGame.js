@@ -174,6 +174,16 @@ function update() { // Покадровое обновление координ�
           }
           if (lifeCount == 0) {
             isPlay = false;
+            for (let i = 0; i < localStorage.length; i++) {
+              if (localStorage.key(i).slice(0, 6) != 'potion') {
+                localStorage.removeItem(localStorage.key(i));
+              }
+            }
+            for (let i = 0; i < localStorage.length; i++) {
+              if (localStorage.key(i).slice(0, 6) != 'potion') {
+                localStorage.removeItem(localStorage.key(i));
+              }
+            }
             localStorage.setItem(`potion${localStorage.length + 1}`, JSON.stringify({result: (scoreCount > 99) ? 'win' : 'lose', score: scoreCount}));
             getHistory();
             (scoreCount > 99) ? win.style.display = 'flex' : lose.style.display = 'flex';
