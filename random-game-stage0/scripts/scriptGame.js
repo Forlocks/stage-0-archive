@@ -146,7 +146,7 @@ document.addEventListener('keyup', function(event) {
 function animationFrames() {
   setTimeout(function() {
     requestAnimationFrame(game);
-  }, 1000 / 100);
+  }, 10);
 };
 function game() { // Игровой цикл
   if (isPlay == true) {
