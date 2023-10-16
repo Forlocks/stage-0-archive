@@ -170,7 +170,7 @@ function update() { // Покадровое обновление координ�
           }
           if (lifeCount == 0) {
             isPlay = false;
-            localStorage.setItem(`game${localStorage.length + 1}`, JSON.stringify({result: (scoreCount > 99) ? 'win' : 'lose', score: scoreCount}));
+            localStorage.setItem(`potion${localStorage.length + 1}`, JSON.stringify({result: (scoreCount > 99) ? 'win' : 'lose', score: scoreCount}));
             getHistory();
             (scoreCount > 99) ? win.style.display = 'flex' : lose.style.display = 'flex';
             restart.style.display = 'flex';
