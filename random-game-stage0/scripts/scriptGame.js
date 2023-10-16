@@ -143,13 +143,17 @@ document.addEventListener('keyup', function(event) {
 });
 
 
-
+function animationFrames() {
+  setTimeout(function() {
+    requestAnimationFrame(game);
+  }, 10);
+};
 function game() { // Игровой цикл
   if (isPlay == true) {
     render();
     update();
   }
-  requestAnimationFrame(game);
+  animationFrames();
 }
 function update() { // Покадровое обновление координат объектов
   for (let i = 0; i < appleCell.length; i++) {
