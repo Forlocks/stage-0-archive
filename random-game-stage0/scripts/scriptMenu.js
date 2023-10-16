@@ -81,14 +81,21 @@ buttonVolumeMenu.addEventListener('click', function() {
 });
 
 function getHistory() {
+  for (let i = 0; i < localStorage.length; i++) {
+    if (localStorage.key(i).slice(0, 6) != 'potion') {
+      localStorage.removeItem(localStorage.key(i));
+    }
+  }
+
   for (let i = 0; i < localStorage.length && i < 10; i++) {
+
     resultsArr[i].innerHTML = '';
     scoresArr[i].innerHTML = '';
 
-    resultsArr[i].append(JSON.parse(localStorage.getItem(`game${localStorage.length - i}`)).result);
-    scoresArr[i].append(JSON.parse(localStorage.getItem(`game${localStorage.length - i}`)).score);
+    resultsArr[i].append(JSON.parse(localStorage.getItem(`potion${localStorage.length - i}`)).result);
+    scoresArr[i].append(JSON.parse(localStorage.getItem(`potion${localStorage.length - i}`)).score);
 
-    if (JSON.parse(localStorage.getItem(`game${localStorage.length - i}`)).result == 'lose') {
+    if (JSON.parse(localStorage.getItem(`potion${localStorage.length - i}`)).result == 'lose') {
       resultsArr[i].style.color = '#ff0000';
       scoresArr[i].style.color = '#ff0000';
     } else {
